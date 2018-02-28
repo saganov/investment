@@ -1,18 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src" full="Investment\Tranch" namespace="Investment" name="Tranch" abstract="false" final="false" start="14" end="36">
-  <file path="C:/cygwin64/home/psaganov/git/pub/investment/src" file="Tranch.php" realpath="C:/cygwin64/home/psaganov/git/pub/investment/src/Tranch.php" size="754" time="2018-02-28T20:42:51+00:00" unixtime="1519850571" sha1="c2ef8836117a1072b70a67bfa9cb8a01beb1b602" relative="Tranch.php"/>
-  <member name="name" visibility="private" static="false" line="16"/>
-  <member name="rate" visibility="private" static="false" line="17"/>
-  <member name="amount" visibility="private" static="false" line="18"/>
-  <constructor name="__construct" start="19" end="23" abstract="false" final="false" static="false" visibility="public">
+<class xmlns="http://xml.phpdox.net/src" full="Investment\Tranch" namespace="Investment" name="Tranch" abstract="false" final="false" start="17" end="75">
+  <file path="C:/cygwin64/home/psaganov/git/pub/investment/src" file="Tranch.php" realpath="C:/cygwin64/home/psaganov/git/pub/investment/src/Tranch.php" size="1518" time="2018-02-28T21:42:17+00:00" unixtime="1519854137" sha1="7e7f10973a0ff57c26d177dee8e46d324e658dd0" relative="Tranch.php"/>
+  <docblock>
+    <description compact="Object that represents Tranch"/>
+  </docblock>
+  <member name="name" visibility="private" static="false" line="19"/>
+  <member name="rate" visibility="private" static="false" line="20"/>
+  <member name="amount" visibility="private" static="false" line="21"/>
+  <constructor name="__construct" start="32" end="36" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor"/>
+      <param description="a name of the tranch to identify it within the others" type="object" variable="$name">
+        <type full="Investment\String" namespace="Investment" name="String"/>
+      </param>
+      <param description="an interest rate of the tranch" type="object" variable="$rate">
+        <type full="Investment\Float" namespace="Investment" name="Float"/>
+      </param>
+      <param description="a maximum amount of investments" type="object" variable="$amount">
+        <type full="Investment\Integer" namespace="Investment" name="Integer"/>
+      </param>
+      <return type="object">
+        <type full="Investment\Tranch" namespace="Investment" name="Tranch"/>
+      </return>
+    </docblock>
     <parameter name="name" byreference="false" type="{unknown}"/>
     <parameter name="rate" byreference="false" type="{unknown}"/>
     <parameter name="amount" byreference="false" type="{unknown}"/>
   </constructor>
-  <method name="name" start="24" end="26" abstract="false" final="false" static="false" visibility="public"/>
-  <method name="rate" start="27" end="29" abstract="false" final="false" static="false" visibility="public"/>
-  <method name="amount" start="30" end="32" abstract="false" final="false" static="false" visibility="public"/>
-  <method name="decrease" start="33" end="35" abstract="false" final="false" static="false" visibility="public">
+  <method name="name" start="43" end="45" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Getter for Tranch name"/>
+      <return description="name of the tranch" type="object">
+        <type full="Investment\String" namespace="Investment" name="String"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="rate" start="52" end="54" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Getter for interest rate"/>
+      <return description="interest rate" type="object">
+        <type full="Investment\Float" namespace="Investment" name="Float"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="amount" start="61" end="63" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Getter for maximum investment amount"/>
+      <return description="maximum investment amount" type="object">
+        <type full="Investment\Integer" namespace="Investment" name="Integer"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="decrease" start="72" end="74" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Decrease the maximum amount of investment"/>
+      <param description="a sum to decrease" type="object" variable="$sum">
+        <type full="Investment\Integer" namespace="Investment" name="Integer"/>
+      </param>
+      <return type="object">
+        <type full="Investment\void" namespace="Investment" name="void"/>
+      </return>
+    </docblock>
     <parameter name="sum" byreference="false" type="{unknown}"/>
   </method>
 </class>

@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src" full="Investment\Loan" namespace="Investment" name="Loan" abstract="false" final="false" start="16" end="66">
-  <file path="C:/cygwin64/home/psaganov/git/pub/investment/src" file="Loan.php" realpath="C:/cygwin64/home/psaganov/git/pub/investment/src/Loan.php" size="2407" time="2018-02-28T21:16:00+00:00" unixtime="1519852560" sha1="8d0d867deeea9bfcdd2039b319f9c87bb666dd28" relative="Loan.php"/>
-  <member name="start" visibility="private" static="false" line="18"/>
-  <member name="end" visibility="private" static="false" line="19"/>
-  <member name="investments" default="" type="array" visibility="private" static="false" line="20"/>
-  <member name="tranches" default="" type="array" visibility="private" static="false" line="21"/>
-  <constructor name="__construct" start="22" end="25" abstract="false" final="false" static="false" visibility="public">
+<class xmlns="http://xml.phpdox.net/src" full="Investment\Loan" namespace="Investment" name="Loan" abstract="false" final="false" start="21" end="107">
+  <file path="C:/cygwin64/home/psaganov/git/pub/investment/src" file="Loan.php" realpath="C:/cygwin64/home/psaganov/git/pub/investment/src/Loan.php" size="3288" time="2018-02-28T21:34:31+00:00" unixtime="1519853671" sha1="e405424e90566b948b5b700d6996736a54bb95ab" relative="Loan.php"/>
+  <docblock>
+    <description compact="A Loan class"/>
+    <author value="Petr Saganov &lt;saganoff@gmail.com&gt;"/>
+  </docblock>
+  <member name="start" visibility="private" static="false" line="23"/>
+  <member name="end" visibility="private" static="false" line="24"/>
+  <member name="investments" default="" type="array" visibility="private" static="false" line="25"/>
+  <member name="tranches" default="" type="array" visibility="private" static="false" line="26"/>
+  <constructor name="__construct" start="36" end="39" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Loan Constructor"/>
+      <param description="Date of start of the loan" type="object" variable="$start">
+        <type full="DateTime" namespace="" name="DateTime"/>
+      </param>
+      <param description="Date of end of the loan" type="object" variable="$end">
+        <type full="DateTime" namespace="" name="DateTime"/>
+      </param>
+      <return type="object">
+        <type full="Investment\Loan" namespace="Investment" name="Loan"/>
+      </return>
+    </docblock>
     <parameter name="start" byreference="false" type="object">
       <type full="DateTime" namespace="" name="DateTime"/>
     </parameter>
@@ -13,15 +29,42 @@
       <type full="DateTime" namespace="" name="DateTime"/>
     </parameter>
   </constructor>
-  <method name="tranch" start="26" end="28" abstract="false" final="false" static="false" visibility="public">
-    <parameter name="tranch" byreference="false" type="{unknown}"/>
+  <method name="tranch" start="48" end="51" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create new tranch for the loan"/>
+      <param description="a new tranch for the loan" type="object" variable="$tranch">
+        <type full="Investment\Tranch" namespace="Investment" name="Tranch"/>
+      </param>
+      <return description="to chain methods" type="object">
+        <type full="Investment\Loan" namespace="Investment" name="Loan"/>
+      </return>
+    </docblock>
+    <parameter name="tranch" byreference="false" type="object">
+      <type full="Investment\Tranch" namespace="Investment" name="Tranch"/>
+    </parameter>
   </method>
-  <method name="invest" start="29" end="44" abstract="false" final="false" static="false" visibility="public">
+  <method name="invest" start="60" end="76" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create new investmnt for this loan"/>
+      <param description="new investment" type="object" variable="$investment">
+        <type full="Investment\Investment" namespace="Investment" name="Investment"/>
+      </param>
+      <return description="to chain methods" type="object">
+        <type full="Investment\Loan" namespace="Investment" name="Loan"/>
+      </return>
+    </docblock>
     <parameter name="investment" byreference="false" type="object">
       <type full="Investment\Investment" namespace="Investment" name="Investment"/>
     </parameter>
   </method>
-  <method name="report" start="45" end="65" abstract="false" final="false" static="false" visibility="public">
+  <method name="report" start="86" end="106" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Provide report by investors">Report includes each investors of the loan with each calculated interests
+on the specified date</description>
+      <param description="a date which the calculation will be made on" type="object" variable="$date">
+        <type full="DateTime" namespace="" name="DateTime"/>
+      </param>
+    </docblock>
     <parameter name="date" byreference="false" type="object">
       <type full="DateTime" namespace="" name="DateTime"/>
     </parameter>

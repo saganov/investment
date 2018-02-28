@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src" full="Investment\Investment" namespace="Investment" name="Investment" abstract="false" final="false" start="16" end="40">
-  <file path="C:/cygwin64/home/psaganov/git/pub/investment/src" file="Investment.php" realpath="C:/cygwin64/home/psaganov/git/pub/investment/src/Investment.php" size="1016" time="2018-02-28T20:59:30+00:00" unixtime="1519851570" sha1="48c4e7678bb48492529578a95f62b379a78ec5cd" relative="Investment.php"/>
-  <member name="investor" visibility="private" static="false" line="18"/>
-  <member name="sum" visibility="private" static="false" line="19"/>
-  <member name="tranch" visibility="private" static="false" line="20"/>
-  <member name="date" visibility="private" static="false" line="21"/>
-  <constructor name="__construct" start="22" end="27" abstract="false" final="false" static="false" visibility="public">
+<class xmlns="http://xml.phpdox.net/src" full="Investment\Investment" namespace="Investment" name="Investment" abstract="false" final="false" start="19" end="81">
+  <file path="C:/cygwin64/home/psaganov/git/pub/investment/src" file="Investment.php" realpath="C:/cygwin64/home/psaganov/git/pub/investment/src/Investment.php" size="1847" time="2018-02-28T21:49:19+00:00" unixtime="1519854559" sha1="56aff849eb90821fde64a5a2d111dd78580a291b" relative="Investment.php"/>
+  <docblock>
+    <description compact="Investment class"/>
+  </docblock>
+  <member name="investor" visibility="private" static="false" line="21"/>
+  <member name="sum" visibility="private" static="false" line="22"/>
+  <member name="tranch" visibility="private" static="false" line="23"/>
+  <member name="date" visibility="private" static="false" line="24"/>
+  <constructor name="__construct" start="36" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Constructor of Investment object"/>
+      <param description="an investor of the investment" type="object" variable="$investor">
+        <type full="Investment\Investor" namespace="Investment" name="Investor"/>
+      </param>
+      <param description="a sum to invest" type="object" variable="$sum">
+        <type full="Investment\Integ" namespace="Investment" name="Integ"/>
+      </param>
+      <param description="a tranch name" type="object" variable="$tranch">
+        <type full="Investment\String" namespace="Investment" name="String"/>
+      </param>
+      <param description="a date to invest to" type="object" variable="$date">
+        <type full="DateTime" namespace="" name="DateTime"/>
+      </param>
+      <return type="object">
+        <type full="Investment\Investment" namespace="Investment" name="Investment"/>
+      </return>
+    </docblock>
     <parameter name="investor" byreference="false" type="object">
       <type full="Investment\Investor" namespace="Investment" name="Investor"/>
     </parameter>
@@ -15,13 +36,46 @@
       <type full="DateTime" namespace="" name="DateTime"/>
     </parameter>
   </constructor>
-  <method name="calculateInterest" start="28" end="30" abstract="false" final="false" static="false" visibility="public">
+  <method name="calculateInterest" start="51" end="53" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Calculate the interest on the specified date for provided interest rate"/>
+      <param description="a date to calculate interest to" type="object" variable="$date">
+        <type full="DateTime" namespace="" name="DateTime"/>
+      </param>
+      <param description="an interest rate" type="object" variable="$rate">
+        <type full="Investment\Float" namespace="Investment" name="Float"/>
+      </param>
+      <return type="object">
+        <type full="Investment\void" namespace="Investment" name="void"/>
+      </return>
+    </docblock>
     <parameter name="date" byreference="false" type="object">
       <type full="DateTime" namespace="" name="DateTime"/>
     </parameter>
     <parameter name="rate" byreference="false" type="{unknown}"/>
   </method>
-  <method name="investor" start="31" end="33" abstract="false" final="false" static="false" visibility="public"/>
-  <method name="tranch" start="34" end="36" abstract="false" final="false" static="false" visibility="public"/>
-  <method name="sum" start="37" end="39" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="investor" start="60" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Gettr fo investor"/>
+      <return type="object">
+        <type full="Investment\Investor" namespace="Investment" name="Investor"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="tranch" start="69" end="71" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Getter for tranch"/>
+      <return description="a tranch name" type="object">
+        <type full="Investment\String" namespace="Investment" name="String"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="sum" start="78" end="80" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Getter for investment sum"/>
+      <return description="an investment sum" type="object">
+        <type full="Investment\Integer" namespace="Investment" name="Integer"/>
+      </return>
+    </docblock>
+  </method>
 </class>

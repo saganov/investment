@@ -3,6 +3,6 @@
   <namespace name="Investment">
     
     
-    <class name="Tranch" src="Tranch.php" xml="classes/Investment_Tranch.xml"/>
-  <class name="Investment" src="Investment.php" xml="classes/Investment_Investment.xml"/><class name="Investor" src="Investor.php" xml="classes/Investment_Investor.xml"/><class name="Loan" src="Loan.php" xml="classes/Investment_Loan.xml"/></namespace>
+    
+  <class name="Investment" src="Investment.php" description="Investment class" xml="classes/Investment_Investment.xml"/><class name="Investor" src="Investor.php" description="Investor class" xml="classes/Investment_Investor.xml"/><class name="Loan" src="Loan.php" description="A Loan class" xml="classes/Investment_Loan.xml"/><class name="Tranch" src="Tranch.php" description="Object that represents Tranch" xml="classes/Investment_Tranch.xml"/></namespace>
 </index>
