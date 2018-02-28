@@ -13,19 +13,50 @@ namespace Investment;
 
 use \DateTime;
 
+/**
+ * A Loan class
+ *
+ * @author Petr Saganov <saganoff@gmail.com>
+ */
 class Loan
 {
     private $start;
     private $end;
     private $investments = [];
     private $tranches    = [];
+
+    /**
+     * Loan Constructor
+     *
+     * @param DateTime $start Date of start of the loan
+     * @param DateTime $end   Date of end of the loan
+     *
+     * @return Loan
+     */
     public function __construct(DateTime $start, DateTime $end){
         $this->start = $start;
         $this->end = $end;
     }
-    public function tranch($tranch){
-        $this->tranches[$tranch->name()] = $tranch; 
+
+    /**
+     * Create new tranch for the loan
+     *
+     * @param Tranch $tranch a new tranch for the loan
+     *
+     * @return Loan to chain methods
+     */
+    public function tranch(Tranch $tranch){
+        $this->tranches[$tranch->name()] = $tranch;
+        return $this;
     }
+
+    /**
+     * Create new investmnt for this loan 
+     *
+     * @param Investment $investment new investment
+     *
+     * @return Loan to chain methods
+     */
     public function invest(Investment $investment){
         if (!$investment->investor()->isEnoughMoney($investment->sum())){
             throw new \Exception("Insufficient funds for investment requested: '{$investment->sum()}'");
@@ -41,7 +72,17 @@ class Loan
         } else {
             throw new \Exception("Unknown Tranch '{$tranch}'");
         }
+        return $this;
     }
+
+    /**
+     * Provide report by investors
+     *
+     * Report includes each investors of the loan with each calculated interests
+     * on the specified date
+     *
+     * @param DateTime $date a date which the calculation will be made on
+     */
     public function report(DateTime $date){
         if ($this->start <= $date && $date <= $this->end){
             $investors = [];
