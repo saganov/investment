@@ -11,12 +11,25 @@
 
 namespace Investment;
 
+use \DateTime;
+
 class Loan
 {
-    public function __construct(){
+    private $start;
+    private $end;
+    public function __construct(DateTime $start, DateTime $end){
+        $this->start = $start;
+        $this->end = $end;
     }
-    public function calculateInterest($date){
-        $report = "'Investor 1' earns 28.06 pounds\n'Investor 3' earns 21.29 pounds";
-        return $report;
+    public function invest(Investor $investor, Tranch $tranch, $sum){
+
+    }
+    public function calculateInterest(DateTime $date){
+        if ($this->start <= $date && $date <= $this->end){
+            $report = "'Investor 1' earns 28.06 pounds\n'Investor 3' earns 21.29 pounds";
+            return $report;
+        } else {
+            throw new \Exception("Unavailable date '{$date->format('d/m/Y')}' for the loan. Valid range is '{$this->start->format('d/m/Y')}' - '{$this->end->format('d/m/Y')}'");
+        }
     }
 }
