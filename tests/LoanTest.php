@@ -3,6 +3,7 @@
 use PHPUnit\Framework\TestCase;
 use Investment\Loan;
 use Investment\Investment;
+use Investment\Tranch;
 
 class LoanTest extends TestCase
 {
@@ -11,8 +12,8 @@ class LoanTest extends TestCase
 
     public function testInterestCalculate(){
         $loan = new Loan(new DateTime('2015-10-01'), new DateTime('2015-11-15'));
-        $loan->tranch(['name' => 'A', 'rate' => 0.03, 'amount' => 1000]);
-        $loan->tranch(['name' => 'B', 'rate' => 0.06, 'amount' => 1000]);
+        $loan->tranch(new Tranch('A', 0.03, 1000));
+        $loan->tranch(new Tranch('B', 0.06, 1000));
         $loan->invest(new Investment('Investor 1', 1000, 'A', new DateTime('2015-10-03')));
         $loan->invest(new Investment('Investor 3', 500,  'B', new DateTime('2015-10-10')));
         $this->assertEquals(

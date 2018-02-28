@@ -24,7 +24,7 @@ class Loan
         $this->end = $end;
     }
     public function tranch($tranch){
-        $this->tranches[$tranch['name']] = $tranch; 
+        $this->tranches[$tranch->name()] = $tranch; 
     }
     public function invest(Investment $investment){
         $this->investments[] = $investment;
@@ -34,7 +34,7 @@ class Loan
             $investors = [];
             foreach ($this->investments as $investment){
                 $investor = $investment->investor();
-                $interest = $investment->calculateInterest($date, $this->tranches[$investment->tranch()]['rate']);
+                $interest = $investment->calculateInterest($date, $this->tranches[$investment->tranch()]->rate());
                 if (key_exists((string)$investor, $investors)) {
                     $investors[(string)$investor] += $interest;
                 } else {
