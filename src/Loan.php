@@ -27,6 +27,9 @@ class Loan
         $this->tranches[$tranch->name()] = $tranch; 
     }
     public function invest(Investment $investment){
+        if (!$investment->investor()->isEnoughMoney($investment->sum())){
+            throw new \Exception("Insufficient funds for investment requested: '{$investment->sum()}'");
+        }
         $tranch = $investment->tranch();
         if (key_exists($tranch, $this->tranches)){
             if ($this->tranches[$tranch]->amount() >= $investment->sum()){

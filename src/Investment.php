@@ -19,7 +19,7 @@ class Investment
     private $sum;
     private $tranch;
     private $date;
-    public function __construct($investor, $sum, $tranch, DateTime $date){
+    public function __construct(Investor $investor, $sum, $tranch, DateTime $date){
         $this->investor = $investor;
         $this->sum = $sum;
         $this->tranch = $tranch;

@@ -4,6 +4,7 @@ use PHPUnit\Framework\TestCase;
 use Investment\Loan;
 use Investment\Investment;
 use Investment\Tranch;
+use Investment\Investor;
 
 class LoanTest extends TestCase
 {
@@ -14,8 +15,8 @@ class LoanTest extends TestCase
         $loan = new Loan(new DateTime('2015-10-01'), new DateTime('2015-11-15'));
         $loan->tranch(new Tranch('A', 0.03, 1000));
         $loan->tranch(new Tranch('B', 0.06, 1000));
-        $loan->invest(new Investment('Investor 1', 1000, 'A', new DateTime('2015-10-03')));
-        $loan->invest(new Investment('Investor 3', 500,  'B', new DateTime('2015-10-10')));
+        $loan->invest(new Investment(new Investor('Investor 1', 1000), 1000, 'A', new DateTime('2015-10-03')));
+        $loan->invest(new Investment(new Investor('Investor 3', 1000), 500,  'B', new DateTime('2015-10-10')));
         $this->assertEquals(
             "'Investor 1' earns 28.06 pounds\n'Investor 3' earns 21.29 pounds",
             $loan->report(new DateTime('2015-10-31')));
@@ -24,18 +25,24 @@ class LoanTest extends TestCase
         $loan = new Loan(new DateTime('2015-10-01'), new DateTime('2015-11-15'));
         $loan->tranch(new Tranch('A', 0.03, 1000));
         $loan->tranch(new Tranch('B', 0.06, 1000));
-        $loan->invest(new Investment('Investor 1', 1000, 'A', new DateTime('2015-10-03')));
+        $loan->invest(new Investment(new Investor('Investor 1', 1000), 1000, 'A', new DateTime('2015-10-03')));
         $this->expectException(\Exception::class);
-        $loan->invest(new Investment('Investor 2', 1,    'A', new DateTime('2015-10-04')));
+        $loan->invest(new Investment(new Investor('Investor 2', 1000), 1,    'A', new DateTime('2015-10-04')));
     }
     public function testOverinvestB(){
         $loan = new Loan(new DateTime('2015-10-01'), new DateTime('2015-11-15'));
         $loan->tranch(new Tranch('A', 0.03, 1000));
         $loan->tranch(new Tranch('B', 0.06, 1000));
-        $loan->invest(new Investment('Investor 1', 1000, 'A', new DateTime('2015-10-03')));
-        $loan->invest(new Investment('Investor 3', 500,  'B', new DateTime('2015-10-10')));
+        $loan->invest(new Investment(new Investor('Investor 1', 1000), 1000, 'A', new DateTime('2015-10-03')));
+        $loan->invest(new Investment(new Investor('Investor 3', 1000), 500,  'B', new DateTime('2015-10-10')));
         $this->expectException(\Exception::class);
-        $loan->invest(new Investment('Investor 4', 1100, 'B', new DateTime('2015-10-25')));
+        $loan->invest(new Investment(new Investor('Investor 4', 1000), 1100, 'B', new DateTime('2015-10-25')));
+    }
+    public function testInvestMoreMoneyThanExists(){
+        $loan = new Loan(new DateTime('2015-10-01'), new DateTime('2015-11-15'));
+        $loan->tranch(new Tranch('A', 0.03, 1000));
+        $this->expectException(\Exception::class);
+        $loan->invest(new Investment(new Investor('Investor 1', 500), 501, 'A', new DateTime('2015-10-03')));
     }
     public function testReportForDateTooEarly(){
         $loan = new Loan(new DateTime('2015-10-01'), new DateTime('2015-11-15'));
