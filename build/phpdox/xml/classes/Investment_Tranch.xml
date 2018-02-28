@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Investment\Tranch" namespace="Investment" name="Tranch" abstract="false" final="false" start="14" end="36">
+  <file path="C:/cygwin64/home/psaganov/git/pub/investment/src" file="Tranch.php" realpath="C:/cygwin64/home/psaganov/git/pub/investment/src/Tranch.php" size="754" time="2018-02-28T20:42:51+00:00" unixtime="1519850571" sha1="c2ef8836117a1072b70a67bfa9cb8a01beb1b602" relative="Tranch.php"/>
+  <member name="name" visibility="private" static="false" line="16"/>
+  <member name="rate" visibility="private" static="false" line="17"/>
+  <member name="amount" visibility="private" static="false" line="18"/>
+  <constructor name="__construct" start="19" end="23" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="rate" byreference="false" type="{unknown}"/>
+    <parameter name="amount" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="name" start="24" end="26" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="rate" start="27" end="29" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="amount" start="30" end="32" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="decrease" start="33" end="35" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="sum" byreference="false" type="{unknown}"/>
+  </method>
+</class>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index xmlns="http://xml.phpdox.net/src" basedir="C:/cygwin64/home/psaganov/git/pub/investment/src">
+  <namespace name="Investment">
+    
+    
+    <class name="Tranch" src="Tranch.php" xml="classes/Investment_Tranch.xml"/>
+  <class name="Investment" src="Investment.php" xml="classes/Investment_Investment.xml"/><class name="Investor" src="Investor.php" xml="classes/Investment_Investor.xml"/><class name="Loan" src="Loan.php" xml="classes/Investment_Loan.xml"/></namespace>
+</index>

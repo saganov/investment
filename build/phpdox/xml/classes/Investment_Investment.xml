@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Investment\Investment" namespace="Investment" name="Investment" abstract="false" final="false" start="16" end="40">
+  <file path="C:/cygwin64/home/psaganov/git/pub/investment/src" file="Investment.php" realpath="C:/cygwin64/home/psaganov/git/pub/investment/src/Investment.php" size="1016" time="2018-02-28T20:59:30+00:00" unixtime="1519851570" sha1="48c4e7678bb48492529578a95f62b379a78ec5cd" relative="Investment.php"/>
+  <member name="investor" visibility="private" static="false" line="18"/>
+  <member name="sum" visibility="private" static="false" line="19"/>
+  <member name="tranch" visibility="private" static="false" line="20"/>
+  <member name="date" visibility="private" static="false" line="21"/>
+  <constructor name="__construct" start="22" end="27" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="investor" byreference="false" type="object">
+      <type full="Investment\Investor" namespace="Investment" name="Investor"/>
+    </parameter>
+    <parameter name="sum" byreference="false" type="{unknown}"/>
+    <parameter name="tranch" byreference="false" type="{unknown}"/>
+    <parameter name="date" byreference="false" type="object">
+      <type full="DateTime" namespace="" name="DateTime"/>
+    </parameter>
+  </constructor>
+  <method name="calculateInterest" start="28" end="30" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="date" byreference="false" type="object">
+      <type full="DateTime" namespace="" name="DateTime"/>
+    </parameter>
+    <parameter name="rate" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="investor" start="31" end="33" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="tranch" start="34" end="36" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="sum" start="37" end="39" abstract="false" final="false" static="false" visibility="public"/>
+</class>

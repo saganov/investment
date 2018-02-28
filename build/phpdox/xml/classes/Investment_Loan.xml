@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Investment\Loan" namespace="Investment" name="Loan" abstract="false" final="false" start="16" end="66">
+  <file path="C:/cygwin64/home/psaganov/git/pub/investment/src" file="Loan.php" realpath="C:/cygwin64/home/psaganov/git/pub/investment/src/Loan.php" size="2407" time="2018-02-28T21:16:00+00:00" unixtime="1519852560" sha1="8d0d867deeea9bfcdd2039b319f9c87bb666dd28" relative="Loan.php"/>
+  <member name="start" visibility="private" static="false" line="18"/>
+  <member name="end" visibility="private" static="false" line="19"/>
+  <member name="investments" default="" type="array" visibility="private" static="false" line="20"/>
+  <member name="tranches" default="" type="array" visibility="private" static="false" line="21"/>
+  <constructor name="__construct" start="22" end="25" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="start" byreference="false" type="object">
+      <type full="DateTime" namespace="" name="DateTime"/>
+    </parameter>
+    <parameter name="end" byreference="false" type="object">
+      <type full="DateTime" namespace="" name="DateTime"/>
+    </parameter>
+  </constructor>
+  <method name="tranch" start="26" end="28" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="tranch" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="invest" start="29" end="44" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="investment" byreference="false" type="object">
+      <type full="Investment\Investment" namespace="Investment" name="Investment"/>
+    </parameter>
+  </method>
+  <method name="report" start="45" end="65" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="date" byreference="false" type="object">
+      <type full="DateTime" namespace="" name="DateTime"/>
+    </parameter>
+  </method>
+</class>
