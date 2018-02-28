@@ -22,19 +22,19 @@ class Loan
         $this->start = $start;
         $this->end = $end;
     }
-    public function invest($investment){
+    public function invest(Investment $investment){
         $this->investments[] = $investment;
     }
     public function calculateInterest(DateTime $date){
         if ($this->start <= $date && $date <= $this->end){
             $investors = [];
             foreach ($this->investments as $investment){
-                $investor = $investment['investor'];
-                $earned = $investment['sum'] * $investment['interest'] * ($date->diff($investment['date'], true)->format('%a') + 1) / 31;
+                $investor = $investment->investor();
+                $interest = $investment->calculateInterest($date);
                 if (key_exists((string)$investor, $investors)) {
-                    $investors[(string)$investor] += $earned;
+                    $investors[(string)$investor] += $interest;
                 } else {
-                    $investors[(string)$investor] = $earned;
+                    $investors[(string)$investor] = $interest;
                 }
             }
             $report = [];
