@@ -27,4 +27,10 @@ class Tranch
     public function rate(){
         return $this->rate;
     }
+    public function amount(){
+        return $this->amount;
+    }
+    public function decrease($sum){
+        $this->amount -= $sum;
+    }
 }

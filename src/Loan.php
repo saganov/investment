@@ -27,14 +27,24 @@ class Loan
         $this->tranches[$tranch->name()] = $tranch; 
     }
     public function invest(Investment $investment){
-        $this->investments[] = $investment;
+        $tranch = $investment->tranch();
+        if (key_exists($tranch, $this->tranches)){
+            if ($this->tranches[$tranch]->amount() >= $investment->sum()){
+                $this->investments[$tranch] = $investment;
+                $this->tranches[$tranch]->decrease($investment->sum());
+            } else {
+                throw new \Exception("Tranch limit for '{$tranch}' exceeded");
+            }
+        } else {
+            throw new \Exception("Unknown Tranch '{$tranch}'");
+        }
     }
     public function report(DateTime $date){
         if ($this->start <= $date && $date <= $this->end){
             $investors = [];
-            foreach ($this->investments as $investment){
+            foreach ($this->investments as $tranch => $investment){
                 $investor = $investment->investor();
-                $interest = $investment->calculateInterest($date, $this->tranches[$investment->tranch()]->rate());
+                $interest = $investment->calculateInterest($date, $this->tranches[$tranch]->rate());
                 if (key_exists((string)$investor, $investors)) {
                     $investors[(string)$investor] += $interest;
                 } else {

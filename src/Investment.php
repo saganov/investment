@@ -34,4 +34,7 @@ class Investment
     public function tranch(){
         return $this->tranch;
     }
+    public function sum(){
+        return $this->sum;
+    }
 }
