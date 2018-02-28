@@ -17,18 +17,21 @@ class Investment
 {
     private $investor;
     private $sum;
-    private $rate;
+    private $tranch;
     private $date;
-    public function __construct($investor, $sum, $rate, DateTime $date){
+    public function __construct($investor, $sum, $tranch, DateTime $date){
         $this->investor = $investor;
         $this->sum = $sum;
-        $this->rate = $rate;
+        $this->tranch = $tranch;
         $this->date = $date;
     }
-    public function calculateInterest(DateTime $date){
-        return ($this->sum * $this->rate * ($date->diff($this->date, true)->days + 1) / cal_days_in_month(CAL_GREGORIAN, $date->format('n'), $date->format('Y')));
+    public function calculateInterest(DateTime $date, $rate){
+        return ($this->sum * $rate * ($date->diff($this->date, true)->days + 1) / cal_days_in_month(CAL_GREGORIAN, $date->format('n'), $date->format('Y')));
     }
     public function investor(){
         return $this->investor;
+    }
+    public function tranch(){
+        return $this->tranch;
     }
 }
