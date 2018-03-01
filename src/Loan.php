@@ -46,33 +46,12 @@ class Loan
      * @return Loan to chain methods
      */
     public function tranch(Tranch $tranch){
+        $tranch->connectToLoan($this);
         $this->tranches[$tranch->name()] = $tranch;
         return $this;
     }
-
-    /**
-     * Create new investmnt for this loan 
-     *
-     * @param Investment $investment new investment
-     *
-     * @return Loan to chain methods
-     */
-    public function invest(Investment $investment){
-        if (!$investment->investor()->isEnoughMoney($investment->sum())){
-            throw new \Exception("Insufficient funds for investment requested: '{$investment->sum()}'");
-        }
-        $tranch = $investment->tranch();
-        if (key_exists($tranch, $this->tranches)){
-            if ($this->tranches[$tranch]->amount() >= $investment->sum()){
-                $this->investments[$tranch] = $investment;
-                $this->tranches[$tranch]->decrease($investment->sum());
-            } else {
-                throw new \Exception("Tranch limit for '{$tranch}' exceeded");
-            }
-        } else {
-            throw new \Exception("Unknown Tranch '{$tranch}'");
-        }
-        return $this;
+    public function isDateAcceptable(DateTime $date){
+        return ($this->start <= $date && $date <= $this->end);
     }
 
     /**
@@ -84,11 +63,12 @@ class Loan
      * @param DateTime $date a date which the calculation will be made on
      */
     public function report(DateTime $date){
-        if ($this->start <= $date && $date <= $this->end){
+        if ($this->isDateAcceptable($date)){
             $investors = [];
-            foreach ($this->investments as $tranch => $investment){
+            foreach ($this->tranches as $tranch){
+                foreach ($tranch->investments() as $investment)
                 $investor = $investment->investor();
-                $interest = $investment->calculateInterest($date, $this->tranches[$tranch]->rate());
+                $interest = $investment->calculateInterest($date, $tranch->rate());
                 if (key_exists((string)$investor, $investors)) {
                     $investors[(string)$investor] += $interest;
                 } else {

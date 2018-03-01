@@ -33,10 +33,9 @@ class Investment
      *
      * @return Investment
      */
-    public function __construct(Investor $investor, $sum, $tranch, DateTime $date){
+    public function __construct(Investor $investor, $sum, DateTime $date){
         $this->investor = $investor;
         $this->sum = $sum;
-        $this->tranch = $tranch;
         $this->date = $date;
     }
 
@@ -52,6 +51,13 @@ class Investment
         return ($this->sum * $rate * ($date->diff($this->date, true)->days + 1) / cal_days_in_month(CAL_GREGORIAN, $date->format('n'), $date->format('Y')));
     }
 
+    public function connectToTranch(Tranch $tranch){
+        if (isset($this->tranch)){
+            throw new \Exception("This investment already invested");
+        $investment->connectToTranch($this);
+        }
+        $this->tranch = $tranch;
+    }
     /**
      * Gettr fo investor
      *
@@ -64,10 +70,18 @@ class Investment
     /**
      * Getter for tranch
      *
-     * @return String a tranch name 
+     * @return String a tranch name
      */
     public function tranch(){
         return $this->tranch;
+    }
+    /**
+     * Getter for date
+     *
+     * @return DateTime a tranch date
+     */
+    public function date(){
+        return $this->date;
     }
 
     /**

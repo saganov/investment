@@ -14,12 +14,13 @@ namespace Investment;
 /**
  * Object that represents Tranch
  */
-class Tranch 
+class Tranch
 {
     private $name;
     private $rate;
     private $amount;
-
+    private $loan;
+    private $investments = [];
     /**
      * Constructor
      *
@@ -27,12 +28,45 @@ class Tranch
      * @param Float  $rate an interest rate of the tranch
      * @param Integer $amount a maximum amount of investments
      *
-     * @return Tranch 
+     * @return Tranch
      */
     public function __construct($name, $rate, $amount){
         $this->name = $name;
         $this->rate = $rate;
         $this->amount = $amount;
+    }
+    public function connectToLoan(Loan $loan){
+        if(isset($this->loan)){
+            throw new \Exception("This tranch has already connected to a loan");
+        } else {
+            $this->loan = $loan;
+        }
+    }
+    public function invest(Investment $investment){
+        $availableAmount = $this->availableAmount();
+        if ($availableAmount < $investment->sum()){
+            throw new \Exception("Only '{$availableAmount}' is available to invest");
+        }
+        if (!$this->loan->isDateAcceptable($investment->date())){
+            throw new \Exception("Requested date is not available");
+        }
+        $investment->connectToTranch($this);
+        $this->investments[] = $investment;
+    }
+    private function availableAmount(){
+        $availableAmount = $this->amount;
+        foreach($this->investments as $investment){
+            $availableAmount -= $investment->sum();
+        }
+        return $availableAmount;
+    }
+    /**
+     * Getter for investments
+     *
+     * @return Array of investments
+     */
+    public function investments(){
+        return $this->investments;
     }
 
     /**
@@ -47,29 +81,9 @@ class Tranch
     /**
      * Getter for interest rate
      *
-     * @return Float interest rate 
+     * @return Float interest rate
      */
     public function rate(){
         return $this->rate;
-    }
-
-    /**
-     * Getter for maximum investment amount
-     *
-     * @return Integer maximum investment amount
-     */
-    public function amount(){
-        return $this->amount;
-    }
-
-    /**
-     * Decrease the maximum amount of investment
-     *
-     * @param Integer $sum a sum to decrease
-     *
-     * @return void
-     */
-    public function decrease($sum){
-        $this->amount -= $sum;
     }
 }
