@@ -20,7 +20,6 @@ class Investment
 {
     private $investor;
     private $sum;
-    private $tranch;
     private $date;
     private $rate;
 
@@ -29,8 +28,8 @@ class Investment
      *
      * @param Investor $investor an investor of the investment
      * @param Integ    $sum      a sum to invest
-     * @param String   $tranch   a tranch name
      * @param DateTime $date     a date to invest to
+     * @param Float    $rate     an investment rate of the investment
      *
      * @return Investment
      */
@@ -60,23 +59,6 @@ class Investment
      */
     public function investor(){
         return $this->investor;
-    }
-
-    /**
-     * Getter for tranch
-     *
-     * @return String a tranch name
-     */
-    public function tranch(){
-        return $this->tranch;
-    }
-    /**
-     * Getter for date
-     *
-     * @return DateTime a tranch date
-     */
-    public function date(){
-        return $this->date;
     }
 
     /**
