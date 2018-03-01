@@ -35,6 +35,7 @@ class Tranch
         $this->name = $name;
         $this->rate = $rate;
         $this->amount = $amount;
+        $this->investments = new InvestmentCollection();
     }
     public function connectToLoan(Loan $loan){
         if(isset($this->loan)){
