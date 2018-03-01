@@ -65,13 +65,12 @@ class Loan
         if ($this->isDateAcceptable($date)){
             $investors = [];
             foreach ($this->tranches as $tranch){
-                foreach ($tranch->investments() as $investment)
-                $investor = $investment->investor();
-                $interest = $investment->calculateInterest($date);
-                if (key_exists((string)$investor, $investors)) {
-                    $investors[(string)$investor] += $interest;
-                } else {
-                    $investors[(string)$investor] = $interest;
+                foreach($tranch->investmentReport($date) as $investor => $interest){
+                    if (key_exists((string)$investor, $investors)) {
+                        $investors[(string)$investor] += $interest;
+                    } else {
+                        $investors[(string)$investor] = $interest;
+                    }
                 }
             }
             $report = [];

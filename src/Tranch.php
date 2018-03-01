@@ -11,6 +11,7 @@
 
 namespace Investment;
 use DateTime;
+use Investment\InvestmentCollection;
 /**
  * Object that represents Tranch
  */
@@ -20,7 +21,7 @@ class Tranch
     private $rate;
     private $amount;
     private $loan;
-    private $investments = [];
+    private $investments;
     /**
      * Constructor
      *
@@ -43,37 +44,24 @@ class Tranch
         }
     }
     public function invest(Investor $investor, $sum, DateTime $date){
-        $availableAmount = $this->availableAmount();
+        $availableAmount = $this->amount - $this->investments->sum();
         if ($availableAmount < $sum){
             throw new \Exception("Only '{$availableAmount}' is available to invest");
         }
         if (!$this->loan->isDateAcceptable($date)){
             throw new \Exception("Requested date is not available");
         }
-        $this->investments[] = new Investment($investor, $sum, $date, $this->rate);
-    }
-    private function availableAmount(){
-        $availableAmount = $this->amount;
-        foreach($this->investments as $investment){
-            $availableAmount -= $investment->sum();
-        }
-        return $availableAmount;
-    }
-    /**
-     * Getter for investments
-     *
-     * @return Array of investments
-     */
-    public function investments(){
-        return $this->investments;
+        $this->investments->add(new Investment($investor, $sum, $date, $this->rate));
     }
 
     /**
-     * Getter for interest rate
+     * A proxy to the InvestmentsCollection::report method
      *
-     * @return Float interest rate
+     * @param DateTime $date a report date
+     *
+     * @return Array [<investor name> => <interest>, ...]
      */
-    public function rate(){
-        return $this->rate;
+    public function investmentReport(DateTime $date){
+        return $this->investments->report($date);
     }
 }
