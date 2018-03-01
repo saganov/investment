@@ -2,7 +2,6 @@
 
 use PHPUnit\Framework\TestCase;
 use Investment\Loan;
-use Investment\Investment;
 use Investment\Tranch;
 use Investment\Investor;
 
@@ -19,8 +18,8 @@ class LoanTest extends TestCase
     }
 
     public function testReport(){
-        $this->tranchA->invest(new Investment(new Investor('Investor 1', 1000), 1000, new DateTime('2015-10-03')));
-        $this->tranchB->invest(new Investment(new Investor('Investor 3', 1000), 500,  new DateTime('2015-10-10')));
+        $this->tranchA->invest(new Investor('Investor 1', 1000), 1000, new DateTime('2015-10-03'));
+        $this->tranchB->invest(new Investor('Investor 3', 1000), 500,  new DateTime('2015-10-10'));
         $this->assertEquals(
             "'Investor 1' earns 28.06 pounds\n'Investor 3' earns 21.29 pounds",
             $this->loan->report(new DateTime('2015-10-31')));

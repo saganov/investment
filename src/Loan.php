@@ -22,7 +22,6 @@ class Loan
 {
     private $start;
     private $end;
-    private $investments = [];
     private $tranches    = [];
 
     /**
@@ -47,7 +46,7 @@ class Loan
      */
     public function tranch(Tranch $tranch){
         $tranch->connectToLoan($this);
-        $this->tranches[$tranch->name()] = $tranch;
+        $this->tranches[] = $tranch;
         return $this;
     }
     public function isDateAcceptable(DateTime $date){
@@ -68,7 +67,7 @@ class Loan
             foreach ($this->tranches as $tranch){
                 foreach ($tranch->investments() as $investment)
                 $investor = $investment->investor();
-                $interest = $investment->calculateInterest($date, $tranch->rate());
+                $interest = $investment->calculateInterest($date);
                 if (key_exists((string)$investor, $investors)) {
                     $investors[(string)$investor] += $interest;
                 } else {

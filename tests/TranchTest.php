@@ -19,32 +19,33 @@ class TranchTest extends TestCase
     }
 
     public function testOverinvestA(){
-        $this->tranchA->invest(new Investment(new Investor('Investor 1', 1000), 1000, new DateTime('2015-10-03')));
+        $investor1 = new Investor('Investor 1', 1000);
+        $investor2 = new Investor('Investor 2', 1000);
+        $investor1->invest($this->tranchA, 1000, new DateTime('2015-10-03'));
         $this->expectException(\Exception::class);
-        $this->tranchA->invest(new Investment(new Investor('Investor 2', 1000), 1,    new DateTime('2015-10-04')));
+        $investor2->invest($this->tranchA, 1, new DateTime('2015-10-04'));
     }
     public function testOverinvestB(){
-        $this->tranchB->invest(new Investment(new Investor('Investor 3', 1000), 500,  new DateTime('2015-10-10')));
+        $investor3 = new Investor('Investor 3', 1000);
+        $investor4 = new Investor('Investor 4', 1000);
+        $investor3->invest($this->tranchB, 500, new DateTime('2015-10-10'));
         $this->expectException(\Exception::class);
-        $this->tranchB->invest(new Investment(new Investor('Investor 4', 1000), 1100, new DateTime('2015-10-25')));
+        $investor4->invest($this->tranchB, 1100, new DateTime('2015-10-25'));
     }
     public function testConnectTranchTwice(){
         $otherLoan = new Loan(new DateTime('2015-10-01'), new DateTime('2015-11-15'));
         $this->expectException(\Exception::class);
         $otherLoan->tranch($this->tranchA);
     }
-    public function testInvestTwice(){
-        $investment = new Investment(new Investor('Investor 2', 1000), 1, new DateTime('2015-10-04'));
-        $this->tranchA->invest($investment);
-        $this->expectException(\Exception::class);
-        $this->tranchB->invest($investment);
-    }
     public function testInvestForDateTooEarly(){
+        $investor = new Investor('Investor', 1000);
         $this->expectException(\Exception::class);
-        $this->tranchA->invest(new Investment(new Investor('Investor 1', 1000), 1000, new DateTime('2015-09-30')));
+        $investor->invest($this->tranchA, 1000, new DateTime('2015-09-30'));
     }
     public function testInvestForDateToolate(){
+        $investor = new Investor('Investor', 1000);
         $this->expectException(\Exception::class);
-        $this->tranchA->invest(new Investment(new Investor('Investor 1', 1000), 1000, new DateTime('2015-11-16')));
+        $investor->invest($this->tranchA, 1000, new DateTime('2015-11-16'));
+        $this->expectException(\Exception::class);
     }
 }

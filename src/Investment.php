@@ -22,6 +22,7 @@ class Investment
     private $sum;
     private $tranch;
     private $date;
+    private $rate;
 
     /**
      * Constructor of Investment object
@@ -33,10 +34,11 @@ class Investment
      *
      * @return Investment
      */
-    public function __construct(Investor $investor, $sum, DateTime $date){
+    public function __construct(Investor $investor, $sum, DateTime $date, $rate){
         $this->investor = $investor;
         $this->sum = $sum;
         $this->date = $date;
+        $this->rate = $rate;
     }
 
     /**
@@ -47,17 +49,10 @@ class Investment
      *
      * @return void
      */
-    public function calculateInterest(DateTime $date, $rate){
-        return ($this->sum * $rate * ($date->diff($this->date, true)->days + 1) / cal_days_in_month(CAL_GREGORIAN, $date->format('n'), $date->format('Y')));
+    public function calculateInterest(DateTime $date){
+        return ($this->sum * $this->rate * ($date->diff($this->date, true)->days + 1) / cal_days_in_month(CAL_GREGORIAN, $date->format('n'), $date->format('Y')));
     }
 
-    public function connectToTranch(Tranch $tranch){
-        if (isset($this->tranch)){
-            throw new \Exception("This investment already invested");
-        $investment->connectToTranch($this);
-        }
-        $this->tranch = $tranch;
-    }
     /**
      * Gettr fo investor
      *

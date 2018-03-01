@@ -10,6 +10,7 @@
  */
 
 namespace Investment;
+use DateTime;
 
 /**
  * Investor class
@@ -18,6 +19,7 @@ class Investor
 {
     private $name;
     private $wallet;
+    private $investments = [];
 
     /**
      * Constructor of the Investor
@@ -29,35 +31,20 @@ class Investor
         $this->name = $name;
         $this->wallet = $wallet;
     }
-
+    public function invest(Tranch $tranch, $sum, DateTime $date){
+        if ($this->wallet >= $sum){
+            $tranch->invest($this, $sum, $date);
+            $this->wallet -= $sum;
+        } else {
+            throw new \Exception("Not enough money for the investment");
+        }
+    }
     /**
      * Magick function to transfom object to string
      *
-     * @return String an investor name 
+     * @return String an investor name
      */
     public function __toString(){
         return $this->name;
-    }
-
-    /**
-     * Check if the invvestor has enough money
-     *
-     * @param Integer $sum a sum to check if in the wallet exists enough money
-     *
-     * @return Boolean
-     */
-    public function isEnoughMoney($sum){
-        return $this->wallet >= $sum;
-    }
-
-    /**
-     * Decrease the amount of money in the wallet
-     *
-     * @param Integer $sum a sum to decrease the amount of money in the wallet
-     *
-     * @return void
-     */
-    public function decrease($sum){
-        $this->wallet -= $sum;
     }
 }

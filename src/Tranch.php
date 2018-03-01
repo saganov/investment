@@ -10,7 +10,7 @@
  */
 
 namespace Investment;
-
+use DateTime;
 /**
  * Object that represents Tranch
  */
@@ -42,16 +42,15 @@ class Tranch
             $this->loan = $loan;
         }
     }
-    public function invest(Investment $investment){
+    public function invest(Investor $investor, $sum, DateTime $date){
         $availableAmount = $this->availableAmount();
-        if ($availableAmount < $investment->sum()){
+        if ($availableAmount < $sum){
             throw new \Exception("Only '{$availableAmount}' is available to invest");
         }
-        if (!$this->loan->isDateAcceptable($investment->date())){
+        if (!$this->loan->isDateAcceptable($date)){
             throw new \Exception("Requested date is not available");
         }
-        $investment->connectToTranch($this);
-        $this->investments[] = $investment;
+        $this->investments[] = new Investment($investor, $sum, $date, $this->rate);
     }
     private function availableAmount(){
         $availableAmount = $this->amount;
@@ -67,15 +66,6 @@ class Tranch
      */
     public function investments(){
         return $this->investments;
-    }
-
-    /**
-     * Getter for Tranch name
-     *
-     * @return String name of the tranch
-     */
-    public function name(){
-        return $this->name;
     }
 
     /**
