@@ -60,6 +60,10 @@ class Loan
      * on the specified date
      *
      * @param DateTime $date a date which the calculation will be made on
+     *
+     * @throws Exception if the provided date is out of the loan date range
+     *
+     * @return String "<Investor name> earns <interest> pounds\n ..."
      */
     public function report(DateTime $date){
         if ($this->isDateAcceptable($date)){

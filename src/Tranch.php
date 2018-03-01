@@ -43,6 +43,19 @@ class Tranch
             $this->loan = $loan;
         }
     }
+
+    /**
+     * Create investment and add it to the collection
+     *
+     * @param Investor $investor an investment investor
+     * @param Integer  $sum      an investment sum
+     * @param DateTime $date     an investment date
+     *
+     * @throws Exception if the provided sum is bigger than the amount available to invest
+     * @throws Exception if the provided date is out of the loan date range
+     *
+     * @return void
+     */
     public function invest(Investor $investor, $sum, DateTime $date){
         $availableAmount = $this->amount - $this->investments->sum();
         if ($availableAmount < $sum){
