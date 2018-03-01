@@ -18,8 +18,10 @@ class LoanTest extends TestCase
     }
 
     public function testReport(){
-        $this->tranchA->invest(new Investor('Investor 1', 1000), 1000, new DateTime('2015-10-03'));
-        $this->tranchB->invest(new Investor('Investor 3', 1000), 500,  new DateTime('2015-10-10'));
+        $investor1 = new Investor('Investor 1', 1000);
+        $investor3 = new Investor('Investor 3', 1000);
+        $investor1->invest($this->tranchA, 1000, new DateTime('2015-10-03'));
+        $investor3->invest($this->tranchB, 500,  new DateTime('2015-10-10'));
         $this->assertEquals(
             "'Investor 1' earns 28.06 pounds\n'Investor 3' earns 21.29 pounds",
             $this->loan->report(new DateTime('2015-10-31')));
