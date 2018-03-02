@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <source xmlns="http://xml.phpdox.net/token">
-  <file xmlns="http://xml.phpdox.net/src" path="C:/cygwin64/home/psaganov/git/pub/investment/src" file="Investment.php" realpath="C:/cygwin64/home/psaganov/git/pub/investment/src/Investment.php" size="1847" time="2018-02-28T21:49:19+00:00" unixtime="1519854559" sha1="56aff849eb90821fde64a5a2d111dd78580a291b" relative="Investment.php"/>
+  <file xmlns="http://xml.phpdox.net/src" path="C:/cygwin64/home/psaganov/git/pub/investment/src" file="Investment.php" realpath="C:/cygwin64/home/psaganov/git/pub/investment/src/Investment.php" size="1735" time="2018-03-02T00:51:12+00:00" unixtime="1519951872" sha1="f434d762c7098e36f3d5d970e20a86284d28a822" relative="Investment.php"/>
   <line no="1">
     <token name="T_OPEN_TAG">&lt;?php</token>
   </line>
@@ -58,6 +58,10 @@
     <token name="T_CLASS">class</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_STRING">Investment</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_IMPLEMENTS">implements</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">InvestmentInterface</token>
   </line>
   <line no="20">
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
@@ -80,14 +84,14 @@
     <token name="T_WHITESPACE">    </token>
     <token name="T_PRIVATE">private</token>
     <token name="T_WHITESPACE"> </token>
-    <token name="T_VARIABLE">$tranch</token>
+    <token name="T_VARIABLE">$date</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
   <line no="24">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PRIVATE">private</token>
     <token name="T_WHITESPACE"> </token>
-    <token name="T_VARIABLE">$date</token>
+    <token name="T_VARIABLE">$rate</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
   <line no="25"/>
@@ -108,10 +112,10 @@
     <token name="T_DOC_COMMENT">     * @param Integ    $sum      a sum to invest</token>
   </line>
   <line no="31">
-    <token name="T_DOC_COMMENT">     * @param String   $tranch   a tranch name</token>
+    <token name="T_DOC_COMMENT">     * @param DateTime $date     a date to invest to</token>
   </line>
   <line no="32">
-    <token name="T_DOC_COMMENT">     * @param DateTime $date     a date to invest to</token>
+    <token name="T_DOC_COMMENT">     * @param Float    $rate     an investment rate of the investment</token>
   </line>
   <line no="33">
     <token name="T_DOC_COMMENT">     *</token>
@@ -130,7 +134,7 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_STRING">__construct</token>
     <token name="T_PHPDOX_OPEN_BRACKET">(</token>
-    <token name="T_STRING">Investor</token>
+    <token name="T_STRING">InvestorInterface</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_VARIABLE">$investor</token>
     <token name="T_PHPDOX_COMMA">,</token>
@@ -138,12 +142,12 @@
     <token name="T_VARIABLE">$sum</token>
     <token name="T_PHPDOX_COMMA">,</token>
     <token name="T_WHITESPACE"> </token>
-    <token name="T_VARIABLE">$tranch</token>
-    <token name="T_PHPDOX_COMMA">,</token>
-    <token name="T_WHITESPACE"> </token>
     <token name="T_STRING">DateTime</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_VARIABLE">$date</token>
+    <token name="T_PHPDOX_COMMA">,</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$rate</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
@@ -173,22 +177,22 @@
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$this</token>
     <token name="T_OBJECT_OPERATOR">-&gt;</token>
-    <token name="T_STRING">tranch</token>
+    <token name="T_STRING">date</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_EQUAL">=</token>
     <token name="T_WHITESPACE"> </token>
-    <token name="T_VARIABLE">$tranch</token>
+    <token name="T_VARIABLE">$date</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
   <line no="40">
     <token name="T_WHITESPACE">        </token>
     <token name="T_VARIABLE">$this</token>
     <token name="T_OBJECT_OPERATOR">-&gt;</token>
-    <token name="T_STRING">date</token>
+    <token name="T_STRING">rate</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_EQUAL">=</token>
     <token name="T_WHITESPACE"> </token>
-    <token name="T_VARIABLE">$date</token>
+    <token name="T_VARIABLE">$rate</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
   <line no="41">
@@ -223,7 +227,7 @@
   </line>
   <line no="51">
     <token name="T_WHITESPACE">    </token>
-    <token name="T_PUBLIC">public</token>
+    <token name="T_PRIVATE">private</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_FUNCTION">function</token>
     <token name="T_WHITESPACE"> </token>
@@ -232,9 +236,6 @@
     <token name="T_STRING">DateTime</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_VARIABLE">$date</token>
-    <token name="T_PHPDOX_COMMA">,</token>
-    <token name="T_WHITESPACE"> </token>
-    <token name="T_VARIABLE">$rate</token>
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
@@ -249,7 +250,9 @@
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_MULT">*</token>
     <token name="T_WHITESPACE"> </token>
-    <token name="T_VARIABLE">$rate</token>
+    <token name="T_VARIABLE">$this</token>
+    <token name="T_OBJECT_OPERATOR">-&gt;</token>
+    <token name="T_STRING">rate</token>
     <token name="T_WHITESPACE"> </token>
     <token name="T_PHPDOX_MULT">*</token>
     <token name="T_WHITESPACE"> </token>
@@ -305,103 +308,61 @@
   <line no="54"/>
   <line no="55">
     <token name="T_WHITESPACE">    </token>
-    <token name="T_DOC_COMMENT">/**</token>
+    <token name="T_PUBLIC">public</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_FUNCTION">function</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_STRING">report</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_STRING">DateTime</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$date</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
   <line no="56">
-    <token name="T_DOC_COMMENT">     * Gettr fo investor</token>
+    <token name="T_WHITESPACE">        </token>
+    <token name="T_RETURN">return</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_OPEN_SQUARE">[</token>
+    <token name="T_STRING_CAST">(string)</token>
+    <token name="T_VARIABLE">$this</token>
+    <token name="T_OBJECT_OPERATOR">-&gt;</token>
+    <token name="T_STRING">investor</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_DOUBLE_ARROW">=&gt;</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$this</token>
+    <token name="T_OBJECT_OPERATOR">-&gt;</token>
+    <token name="T_STRING">calculateInterest</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$date</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_CLOSE_SQUARE">]</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
   <line no="57">
-    <token name="T_DOC_COMMENT">     *</token>
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="58">
-    <token name="T_DOC_COMMENT">     * @return Investor</token>
-  </line>
+  <line no="58"/>
   <line no="59">
-    <token name="T_DOC_COMMENT">     */</token>
+    <token name="T_WHITESPACE">    </token>
+    <token name="T_DOC_COMMENT">/**</token>
   </line>
   <line no="60">
-    <token name="T_WHITESPACE">    </token>
-    <token name="T_PUBLIC">public</token>
-    <token name="T_WHITESPACE"> </token>
-    <token name="T_FUNCTION">function</token>
-    <token name="T_WHITESPACE"> </token>
-    <token name="T_STRING">investor</token>
-    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
-    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
-    <token name="T_PHPDOX_OPEN_CURLY">{</token>
-  </line>
-  <line no="61">
-    <token name="T_WHITESPACE">        </token>
-    <token name="T_RETURN">return</token>
-    <token name="T_WHITESPACE"> </token>
-    <token name="T_VARIABLE">$this</token>
-    <token name="T_OBJECT_OPERATOR">-&gt;</token>
-    <token name="T_STRING">investor</token>
-    <token name="T_PHPDOX_SEMICOLON">;</token>
-  </line>
-  <line no="62">
-    <token name="T_WHITESPACE">    </token>
-    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
-  </line>
-  <line no="63"/>
-  <line no="64">
-    <token name="T_WHITESPACE">    </token>
-    <token name="T_DOC_COMMENT">/**</token>
-  </line>
-  <line no="65">
-    <token name="T_DOC_COMMENT">     * Getter for tranch</token>
-  </line>
-  <line no="66">
-    <token name="T_DOC_COMMENT">     *</token>
-  </line>
-  <line no="67">
-    <token name="T_DOC_COMMENT">     * @return String a tranch name </token>
-  </line>
-  <line no="68">
-    <token name="T_DOC_COMMENT">     */</token>
-  </line>
-  <line no="69">
-    <token name="T_WHITESPACE">    </token>
-    <token name="T_PUBLIC">public</token>
-    <token name="T_WHITESPACE"> </token>
-    <token name="T_FUNCTION">function</token>
-    <token name="T_WHITESPACE"> </token>
-    <token name="T_STRING">tranch</token>
-    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
-    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
-    <token name="T_PHPDOX_OPEN_CURLY">{</token>
-  </line>
-  <line no="70">
-    <token name="T_WHITESPACE">        </token>
-    <token name="T_RETURN">return</token>
-    <token name="T_WHITESPACE"> </token>
-    <token name="T_VARIABLE">$this</token>
-    <token name="T_OBJECT_OPERATOR">-&gt;</token>
-    <token name="T_STRING">tranch</token>
-    <token name="T_PHPDOX_SEMICOLON">;</token>
-  </line>
-  <line no="71">
-    <token name="T_WHITESPACE">    </token>
-    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
-  </line>
-  <line no="72"/>
-  <line no="73">
-    <token name="T_WHITESPACE">    </token>
-    <token name="T_DOC_COMMENT">/**</token>
-  </line>
-  <line no="74">
     <token name="T_DOC_COMMENT">     * Getter for investment sum</token>
   </line>
-  <line no="75">
+  <line no="61">
     <token name="T_DOC_COMMENT">     *</token>
   </line>
-  <line no="76">
+  <line no="62">
     <token name="T_DOC_COMMENT">     * @return Integer an investment sum</token>
   </line>
-  <line no="77">
+  <line no="63">
     <token name="T_DOC_COMMENT">     */</token>
   </line>
-  <line no="78">
+  <line no="64">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PUBLIC">public</token>
     <token name="T_WHITESPACE"> </token>
@@ -412,7 +373,7 @@
     <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
     <token name="T_PHPDOX_OPEN_CURLY">{</token>
   </line>
-  <line no="79">
+  <line no="65">
     <token name="T_WHITESPACE">        </token>
     <token name="T_RETURN">return</token>
     <token name="T_WHITESPACE"> </token>
@@ -421,12 +382,12 @@
     <token name="T_STRING">sum</token>
     <token name="T_PHPDOX_SEMICOLON">;</token>
   </line>
-  <line no="80">
+  <line no="66">
     <token name="T_WHITESPACE">    </token>
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="81">
+  <line no="67">
     <token name="T_PHPDOX_CLOSE_CURLY">}</token>
   </line>
-  <line no="82"/>
+  <line no="68"/>
 </source>

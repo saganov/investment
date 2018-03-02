@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Investment\Report" namespace="Investment" name="Report" abstract="false" final="false" start="20" end="54">
+  <file path="C:/cygwin64/home/psaganov/git/pub/investment/src" file="Report.php" realpath="C:/cygwin64/home/psaganov/git/pub/investment/src/Report.php" size="1459" time="2018-03-02T00:51:12+00:00" unixtime="1519951872" sha1="caff14fbccd225ea4de88df1ef7a5e32c58d2310" relative="Report.php"/>
+  <docblock>
+    <description compact="A Report class to provide string output"/>
+    <author value="Petr Saganov &lt;saganoff@gmail.com&gt;"/>
+  </docblock>
+  <implements full="Investment\InvestmentReportInterface" namespace="Investment" name="InvestmentReportInterface"/>
+  <member name="loan" visibility="private" static="false" line="22"/>
+  <member name="template" visibility="private" static="false" line="23"/>
+  <constructor name="__construct" start="32" end="35" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Report Constructor"/>
+      <param description="a loan to provide report for" type="object" variable="$loan">
+        <type full="Investment\InvestmentReportInterface" namespace="Investment" name="InvestmentReportInterface"/>
+      </param>
+      <param description="a string template to output" type="object" variable="$template">
+        <type full="Investment\String" namespace="Investment" name="String"/>
+      </param>
+      <return type="object">
+        <type full="Investment\Report" namespace="Investment" name="Report"/>
+      </return>
+    </docblock>
+    <parameter name="loan" byreference="false" type="object">
+      <type full="Investment\InvestmentReportInterface" namespace="Investment" name="InvestmentReportInterface"/>
+    </parameter>
+    <parameter name="template" byreference="false" type="string" default="&quot;'%s' earns %01.2f pounds&quot;"/>
+  </constructor>
+  <method name="report" start="47" end="53" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Provide report by investors">Report includes each investors of the loan with each calculated interests
+on the specified date</description>
+      <param description="a loan to provide report to" type="object" variable="$loan">
+        <type full="Investment\Loan" namespace="Investment" name="Loan"/>
+      </param>
+      <return description="&quot;&lt;Investor name&gt; earns &lt;interest&gt; pounds\n ...&quot;" type="object">
+        <type full="Investment\String" namespace="Investment" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="date" byreference="false" type="object">
+      <type full="DateTime" namespace="" name="DateTime"/>
+    </parameter>
+  </method>
+  <interface full="Investment\InvestmentReportInterface" namespace="Investment" name="InvestmentReportInterface">
+    <method name="report" start="26" end="26" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Create report of investments"/>
+        <param description="a report date" type="object" variable="$date">
+          <type full="Investment\DateTime" namespace="Investment" name="DateTime"/>
+        </param>
+        <return description="[&lt;investor name&gt; =&gt; &lt;interest&gt;, ...]" type="object">
+          <type full="Investment\Array" namespace="Investment" name="Array"/>
+        </return>
+      </docblock>
+      <parameter name="date" byreference="false" type="object">
+        <type full="DateTime" namespace="" name="DateTime"/>
+      </parameter>
+    </method>
+  </interface>
+</class>

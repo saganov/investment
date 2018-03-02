@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Investment\TranchInterface" namespace="Investment" name="TranchInterface" abstract="false" final="false" start="17" end="45">
+  <file path="C:/cygwin64/home/psaganov/git/pub/investment/src" file="TranchInterface.php" realpath="C:/cygwin64/home/psaganov/git/pub/investment/src/TranchInterface.php" size="1054" time="2018-03-02T00:51:12+00:00" unixtime="1519951872" sha1="4003276a2583b880565e147656364435981784ca" relative="TranchInterface.php"/>
+  <docblock>
+    <description compact="Tranch interface"/>
+  </docblock>
+  <method name="connectToLoan" start="24" end="24" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Connect the Tranch with particular Loan"/>
+      <param description="a Loan to connect to" type="object" variable="$loan">
+        <type full="Investment\Loan" namespace="Investment" name="Loan"/>
+      </param>
+    </docblock>
+    <parameter name="loan" byreference="false" type="object">
+      <type full="Investment\LoanInterface" namespace="Investment" name="LoanInterface"/>
+    </parameter>
+  </method>
+  <method name="invest" start="35" end="35" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create a new investment"/>
+      <param description="an investment investor" type="object" variable="$investor">
+        <type full="Investment\Investor" namespace="Investment" name="Investor"/>
+      </param>
+      <param description="an investment sum" type="object" variable="$sum">
+        <type full="Investment\Integer" namespace="Investment" name="Integer"/>
+      </param>
+      <param description="an investment date" type="object" variable="$date">
+        <type full="Investment\DateTime" namespace="Investment" name="DateTime"/>
+      </param>
+      <return type="object">
+        <type full="Investment\void" namespace="Investment" name="void"/>
+      </return>
+    </docblock>
+    <parameter name="investor" byreference="false" type="object">
+      <type full="Investment\InvestorInterface" namespace="Investment" name="InvestorInterface"/>
+    </parameter>
+    <parameter name="sum" byreference="false" type="{unknown}"/>
+    <parameter name="date" byreference="false" type="object">
+      <type full="DateTime" namespace="" name="DateTime"/>
+    </parameter>
+  </method>
+  <method name="report" start="44" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create report of interests of all investors in the tranch"/>
+      <param description="a report date" type="object" variable="$date">
+        <type full="Investment\DateTime" namespace="Investment" name="DateTime"/>
+      </param>
+      <return description="[&lt;investor name&gt; =&gt; &lt;interest&gt;, ...]" type="object">
+        <type full="Investment\Array" namespace="Investment" name="Array"/>
+      </return>
+    </docblock>
+    <parameter name="date" byreference="false" type="object">
+      <type full="DateTime" namespace="" name="DateTime"/>
+    </parameter>
+  </method>
+  <implementors>
+    <class full="Investment\Tranch" namespace="Investment" name="Tranch"/>
+  </implementors>
+</interface>

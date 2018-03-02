@@ -2,7 +2,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <title>phpDox - Investment\Investor::isEnoughMoney</title>
+    <title>phpDox - Investment\TranchInterface::connectToLoan</title>
     <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen"/>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
   </head>
@@ -17,6 +17,9 @@
         </li>
         <li class="separator">
           <a href="../../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../../interfaces.xhtml">Interfaces</a>
         </li>
         <li>
           <a href="../../classes.xhtml">Classes</a>
@@ -39,9 +42,9 @@
             <a href="../../classes.xhtml#Investment">Investment</a>
           </li>
           <li class="separator">
-            <a title="Investment\Investor" href="../../classes/Investment_Investor.xhtml">Investor</a>
+            <a title="Investment\TranchInterface" href="../../interfaces/Investment_TranchInterface.xhtml">TranchInterface</a>
           </li>
-          <li class="separator">isEnoughMoney</li>
+          <li class="separator">connectToLoan</li>
         </ul>
       </div>
       <nav class="box">
@@ -56,36 +59,27 @@
             <a href="#parameter">Parameter</a>
           </li>
           <li>
-            <a href="#return">Return</a>
-          </li>
-          <li>
-            <a href="../../source/Investor.php.xhtml#line49">Source</a>
+            <a href="../../source/TranchInterface.php.xhtml#line24">Source</a>
           </li>
         </ul>
       </nav>
       <section>
-        <h1><small>Investment\Investor::</small>isEnoughMoney</h1>
-        <h4>Check if the invvestor has enough money</h4>
+        <h1><small>Investment\TranchInterface::</small>connectToLoan</h1>
+        <h4>Connect the Tranch with particular Loan</h4>
         <p/>
         <ul/>
         <h2 id="signature">Signature</h2>
         <div class="styled synopsis">
-          <code>public function isEnoughMoney(<a title="Investment\Integer" href="../../classes/Investment_Integer.xhtml">Integer</a>
-        $sum )
+          <code>public function connectToLoan(<a title="Investment\LoanInterface" href="../../interfaces/Investment_LoanInterface.xhtml">LoanInterface</a>
+        $loan )
             </code>
         </div>
         <h2 id="parameterlist">Parameters</h2>
         <dl class="styled">
-          <dt><code>$sum</code>
+          <dt><code>$loan</code>
                 —
-                object</dt>
-          <dd>a sum to check if in the wallet exists enough money<br/><br/><br/>      </dd>
-        </dl>
-        <h2 id="return">Returns</h2>
-        <dl class="styled">
-          <dt>Boolean</dt>
-          <dd><br/>
-        </dd>
+                <a title="Investment\Loan" href="../../interfaces/Investment_Loan.xhtml">Investment\Loan</a></dt>
+          <dd>a Loan to connect to<br/><br/><br/>      </dd>
         </dl>
       </section>
     </div>

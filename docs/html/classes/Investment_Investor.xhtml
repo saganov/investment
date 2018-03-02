@@ -19,6 +19,9 @@
           <a href="../namespaces.xhtml">Namespaces</a>
         </li>
         <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
           <a href="../classes.xhtml">Classes</a>
         </li>
         <li class="separator">
@@ -50,13 +53,16 @@
             <a href="#synopsis">Synopsis</a>
           </li>
           <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
             <a href="#members">Members</a>
           </li>
           <li>
             <a href="#methods">Methods</a>
           </li>
           <li>
-            <a href="../source/Investor.php.xhtml#line17">Source</a>
+            <a href="../source/Investor.php.xhtml#line18">Source</a>
           </li>
         </ul>
       </nav>
@@ -67,19 +73,34 @@
         <ul/>
         <h2 id="synopsis">Synopsis</h2>
         <div class="synopsis">class Investor
+                implements
+                <a title="Investment\InvestorInterface" href="../interfaces/Investment_InvestorInterface.xhtml">InvestorInterface</a>
             {<br/><ul class="none"><li>// members</li><li>private  <a href="#members">$name</a>;
                     </li><li>private  <a href="#members">$wallet</a>;
+                    </li><li>private array <a href="#members">$investments</a> =
+                        ;
                     </li></ul><ul class="none"><li>// methods</li><li>public void <a title="Investment\Investor" href="../classes/Investment_Investor/__construct.xhtml">__construct</a>()
+                    </li><li>public void <a title="Investment\Investor" href="../classes/Investment_Investor/invest.xhtml">invest</a>()
                     </li><li>public String <a title="Investment\Investor" href="../classes/Investment_Investor/__toString.xhtml">__toString</a>()
-                    </li><li>public Boolean <a title="Investment\Investor" href="../classes/Investment_Investor/isEnoughMoney.xhtml">isEnoughMoney</a>()
-                    </li><li>public void <a title="Investment\Investor" href="../classes/Investment_Investor/decrease.xhtml">decrease</a>()
                     </li></ul>
 
             }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Implements</h4>
+          <ul>
+            <li>
+              <a title="Investment\InvestorInterface" href="../interfaces/Investment_InvestorInterface.xhtml">Investment\InvestorInterface</a>
+            </li>
+          </ul>
+        </div>
         <h2 id="members">Members</h2>
         <div class="styled members">
           <h4>private</h4>
           <ul class="members">
+            <li id="investments">
+              <strong>$investments</strong>
+            </li>
             <li id="name">
               <strong>$name</strong>
             </li>
@@ -96,10 +117,8 @@
                 — Constructor of the Investor</li>
             <li id="__toString"><a title="Investment\Investor" href="../classes/Investment_Investor/__toString.xhtml">__toString()</a>
                 — Magick function to transfom object to string</li>
-            <li id="decrease"><a title="Investment\Investor" href="../classes/Investment_Investor/decrease.xhtml">decrease()</a>
-                — Decrease the amount of money in the wallet</li>
-            <li id="isEnoughMoney"><a title="Investment\Investor" href="../classes/Investment_Investor/isEnoughMoney.xhtml">isEnoughMoney()</a>
-                — Check if the invvestor has enough money</li>
+            <li id="invest"><a title="Investment\Investor" href="../classes/Investment_Investor/invest.xhtml">invest()</a>
+                — Create new Investment and register it in the loan</li>
           </ul>
         </div>
       </section>

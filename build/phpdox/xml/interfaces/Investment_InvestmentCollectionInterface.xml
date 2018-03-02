@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Investment\InvestmentCollectionInterface" namespace="Investment" name="InvestmentCollectionInterface" abstract="false" final="false" start="16" end="33">
+  <file path="C:/cygwin64/home/psaganov/git/pub/investment/src" file="InvestmentCollectionInterface.php" realpath="C:/cygwin64/home/psaganov/git/pub/investment/src/InvestmentCollectionInterface.php" size="778" time="2018-03-02T00:51:12+00:00" unixtime="1519951872" sha1="25ef96ea0f9a471ad72b37ee4abc3ef9927d2254" relative="InvestmentCollectionInterface.php"/>
+  <docblock>
+    <description compact="Colletion of Investment objects"/>
+  </docblock>
+  <method name="add" start="25" end="25" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds new Investment to the collection"/>
+      <param description="an investment to add" type="object" variable="$investment">
+        <type full="Investment\Investment" namespace="Investment" name="Investment"/>
+      </param>
+      <return description="for chaining methods;" type="object">
+        <type full="Investment\InvestmentCollection" namespace="Investment" name="InvestmentCollection"/>
+      </return>
+    </docblock>
+    <parameter name="investment" byreference="false" type="object">
+      <type full="Investment\InvestmentInterface" namespace="Investment" name="InvestmentInterface"/>
+    </parameter>
+  </method>
+  <method name="sum" start="32" end="32" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Calculate total sum of all investments in collection"/>
+      <return description="total of all sum's of investments in collection" type="object">
+        <type full="Investment\Integer" namespace="Investment" name="Integer"/>
+      </return>
+    </docblock>
+  </method>
+  <implementors>
+    <class full="Investment\InvestmentCollection" namespace="Investment" name="InvestmentCollection"/>
+  </implementors>
+</interface>

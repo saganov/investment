@@ -19,6 +19,9 @@
           <a href="../namespaces.xhtml">Namespaces</a>
         </li>
         <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
           <a href="../classes.xhtml">Classes</a>
         </li>
         <li class="separator">
@@ -50,13 +53,16 @@
             <a href="#synopsis">Synopsis</a>
           </li>
           <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
             <a href="#members">Members</a>
           </li>
           <li>
             <a href="#methods">Methods</a>
           </li>
           <li>
-            <a href="../source/Tranch.php.xhtml#line17">Source</a>
+            <a href="../source/Tranch.php.xhtml#line18">Source</a>
           </li>
         </ul>
       </nav>
@@ -67,23 +73,41 @@
         <ul/>
         <h2 id="synopsis">Synopsis</h2>
         <div class="synopsis">class Tranch
+                implements
+                <a title="Investment\TranchInterface" href="../interfaces/Investment_TranchInterface.xhtml">TranchInterface</a>
             {<br/><ul class="none"><li>// members</li><li>private  <a href="#members">$name</a>;
                     </li><li>private  <a href="#members">$rate</a>;
                     </li><li>private  <a href="#members">$amount</a>;
+                    </li><li>private  <a href="#members">$loan</a>;
+                    </li><li>private  <a href="#members">$investments</a>;
                     </li></ul><ul class="none"><li>// methods</li><li>public Tranch <a title="Investment\Tranch" href="../classes/Investment_Tranch/__construct.xhtml">__construct</a>()
-                    </li><li>public String <a title="Investment\Tranch" href="../classes/Investment_Tranch/name.xhtml">name</a>()
-                    </li><li>public Float <a title="Investment\Tranch" href="../classes/Investment_Tranch/rate.xhtml">rate</a>()
-                    </li><li>public Integer <a title="Investment\Tranch" href="../classes/Investment_Tranch/amount.xhtml">amount</a>()
-                    </li><li>public void <a title="Investment\Tranch" href="../classes/Investment_Tranch/decrease.xhtml">decrease</a>()
+                    </li><li>public void <a title="Investment\Tranch" href="../classes/Investment_Tranch/connectToLoan.xhtml">connectToLoan</a>()
+                    </li><li>public void <a title="Investment\Tranch" href="../classes/Investment_Tranch/invest.xhtml">invest</a>()
+                    </li><li>public Array <a title="Investment\Tranch" href="../classes/Investment_Tranch/report.xhtml">report</a>()
                     </li></ul>
 
             }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Implements</h4>
+          <ul>
+            <li>
+              <a title="Investment\TranchInterface" href="../interfaces/Investment_TranchInterface.xhtml">Investment\TranchInterface</a>
+            </li>
+          </ul>
+        </div>
         <h2 id="members">Members</h2>
         <div class="styled members">
           <h4>private</h4>
           <ul class="members">
             <li id="amount">
               <strong>$amount</strong>
+            </li>
+            <li id="investments">
+              <strong>$investments</strong>
+            </li>
+            <li id="loan">
+              <strong>$loan</strong>
             </li>
             <li id="name">
               <strong>$name</strong>
@@ -99,14 +123,12 @@
           <ul>
             <li id="__construct"><a title="Investment\Tranch" href="../classes/Investment_Tranch/__construct.xhtml">__construct()</a>
                 — Constructor</li>
-            <li id="amount"><a title="Investment\Tranch" href="../classes/Investment_Tranch/amount.xhtml">amount()</a>
-                — Getter for maximum investment amount</li>
-            <li id="decrease"><a title="Investment\Tranch" href="../classes/Investment_Tranch/decrease.xhtml">decrease()</a>
-                — Decrease the maximum amount of investment</li>
-            <li id="name"><a title="Investment\Tranch" href="../classes/Investment_Tranch/name.xhtml">name()</a>
-                — Getter for Tranch name</li>
-            <li id="rate"><a title="Investment\Tranch" href="../classes/Investment_Tranch/rate.xhtml">rate()</a>
-                — Getter for interest rate</li>
+            <li id="connectToLoan"><a title="Investment\Tranch" href="../classes/Investment_Tranch/connectToLoan.xhtml">connectToLoan()</a>
+                — Connect the Tranch with particular Loan</li>
+            <li id="invest"><a title="Investment\Tranch" href="../classes/Investment_Tranch/invest.xhtml">invest()</a>
+                — Create investment and add it to the collection</li>
+            <li id="report"><a title="Investment\Tranch" href="../classes/Investment_Tranch/report.xhtml">report()</a>
+                — A proxy to the InvestmentsCollection::report method</li>
           </ul>
         </div>
       </section>

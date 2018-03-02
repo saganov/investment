@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <source xmlns="http://xml.phpdox.net/src">
   <dir name="C:/cygwin64/home/psaganov/git/pub/investment/src">
-    <file name="Investment.php" size="1847" time="2018-02-28T21:49:19+00:00" unixtime="1519854559" sha1="56aff849eb90821fde64a5a2d111dd78580a291b" xml="tokens/Investment.php.xml"/>
-    <file name="Investor.php" size="1333" time="2018-02-28T21:55:34+00:00" unixtime="1519854934" sha1="eba01c3006244751e2b22a730844d52a5639bc98" xml="tokens/Investor.php.xml"/>
-    <file name="Loan.php" size="3288" time="2018-02-28T21:34:31+00:00" unixtime="1519853671" sha1="e405424e90566b948b5b700d6996736a54bb95ab" xml="tokens/Loan.php.xml"/>
-    <file name="Tranch.php" size="1518" time="2018-02-28T21:42:17+00:00" unixtime="1519854137" sha1="7e7f10973a0ff57c26d177dee8e46d324e658dd0" xml="tokens/Tranch.php.xml"/>
+    <file name="Investment.php" size="1735" time="2018-03-02T00:51:12+00:00" unixtime="1519951872" sha1="f434d762c7098e36f3d5d970e20a86284d28a822" xml="tokens/Investment.php.xml"/>
+    <file name="InvestmentCollection.php" size="1736" time="2018-03-02T00:51:12+00:00" unixtime="1519951872" sha1="1804d3ddc79311a0bfa8ae2b7c9e37102bd23695" xml="tokens/InvestmentCollection.php.xml"/>
+    <file name="InvestmentCollectionInterface.php" size="778" time="2018-03-02T00:51:12+00:00" unixtime="1519951872" sha1="25ef96ea0f9a471ad72b37ee4abc3ef9927d2254" xml="tokens/InvestmentCollectionInterface.php.xml"/>
+    <file name="InvestmentInterface.php" size="747" time="2018-03-02T00:51:12+00:00" unixtime="1519951872" sha1="819fbb3cd2f0d42b43859f8c15af56a48e52eefe" xml="tokens/InvestmentInterface.php.xml"/>
+    <file name="InvestmentReportInterface.php" size="541" time="2018-03-02T00:51:12+00:00" unixtime="1519951872" sha1="83fe7d95f1803d12290b527cadd8c4902e14dd55" xml="tokens/InvestmentReportInterface.php.xml"/>
+    <file name="Investor.php" size="1526" time="2018-03-02T00:51:12+00:00" unixtime="1519951872" sha1="f6d72d03e35c09cee84bd3d9303a97703afe0bfc" xml="tokens/Investor.php.xml"/>
+    <file name="InvestorInterface.php" size="751" time="2018-03-02T00:51:12+00:00" unixtime="1519951872" sha1="abe8bd8995605baaedd9e6152eff7be5b8c3d497" xml="tokens/InvestorInterface.php.xml"/>
+    <file name="Loan.php" size="2612" time="2018-03-02T00:51:12+00:00" unixtime="1519951872" sha1="5f55473e0803832193e1df0d1a9688a684bff18c" xml="tokens/Loan.php.xml"/>
+    <file name="LoanInterface.php" size="1194" time="2018-03-02T00:51:12+00:00" unixtime="1519951872" sha1="e02c5ae01f080ea82b835b1cb386dc289289413d" xml="tokens/LoanInterface.php.xml"/>
+    <file name="Report.php" size="1459" time="2018-03-02T00:51:12+00:00" unixtime="1519951872" sha1="caff14fbccd225ea4de88df1ef7a5e32c58d2310" xml="tokens/Report.php.xml"/>
+    <file name="Tranch.php" size="2633" time="2018-03-02T00:51:12+00:00" unixtime="1519951872" sha1="e4ac30f98083906ec2e416bbb2ce4b2ba3a560bb" xml="tokens/Tranch.php.xml"/>
+    <file name="TranchInterface.php" size="1054" time="2018-03-02T00:51:12+00:00" unixtime="1519951872" sha1="4003276a2583b880565e147656364435981784ca" xml="tokens/TranchInterface.php.xml"/>
   </dir>
 </source>

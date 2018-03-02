@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Investment\InvestorInterface" namespace="Investment" name="InvestorInterface" abstract="false" final="false" start="17" end="34">
+  <file path="C:/cygwin64/home/psaganov/git/pub/investment/src" file="InvestorInterface.php" realpath="C:/cygwin64/home/psaganov/git/pub/investment/src/InvestorInterface.php" size="751" time="2018-03-02T00:51:12+00:00" unixtime="1519951872" sha1="abe8bd8995605baaedd9e6152eff7be5b8c3d497" relative="InvestorInterface.php"/>
+  <docblock>
+    <description compact="Investor interface"/>
+  </docblock>
+  <method name="invest" start="26" end="26" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create new Investment"/>
+      <param description="an investment tranch" type="object" variable="$tranch">
+        <type full="Investment\Tranch" namespace="Investment" name="Tranch"/>
+      </param>
+      <param description="an investment sum" type="object" variable="$sum">
+        <type full="Investment\Integer" namespace="Investment" name="Integer"/>
+      </param>
+      <param description="an investment date" type="object" variable="$date">
+        <type full="Investment\DateTime" namespace="Investment" name="DateTime"/>
+      </param>
+    </docblock>
+    <parameter name="tranch" byreference="false" type="object">
+      <type full="Investment\TranchInterface" namespace="Investment" name="TranchInterface"/>
+    </parameter>
+    <parameter name="sum" byreference="false" type="{unknown}"/>
+    <parameter name="date" byreference="false" type="object">
+      <type full="DateTime" namespace="" name="DateTime"/>
+    </parameter>
+  </method>
+  <method name="__toString" start="33" end="33" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Magick function to transfom object to string"/>
+      <return description="an investor name" type="object">
+        <type full="Investment\String" namespace="Investment" name="String"/>
+      </return>
+    </docblock>
+  </method>
+  <implementors>
+    <class full="Investment\Investor" namespace="Investment" name="Investor"/>
+  </implementors>
+</interface>

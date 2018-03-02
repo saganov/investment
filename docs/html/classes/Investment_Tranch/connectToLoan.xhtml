@@ -2,7 +2,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <title>phpDox - Investment\Tranch::rate</title>
+    <title>phpDox - Investment\Tranch::connectToLoan</title>
     <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen"/>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
   </head>
@@ -17,6 +17,9 @@
         </li>
         <li class="separator">
           <a href="../../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../../interfaces.xhtml">Interfaces</a>
         </li>
         <li>
           <a href="../../classes.xhtml">Classes</a>
@@ -41,7 +44,7 @@
           <li class="separator">
             <a title="Investment\Tranch" href="../../classes/Investment_Tranch.xhtml">Tranch</a>
           </li>
-          <li class="separator">rate</li>
+          <li class="separator">connectToLoan</li>
         </ul>
       </div>
       <nav class="box">
@@ -53,29 +56,52 @@
             <a href="#synopsis">Synopsis</a>
           </li>
           <li>
-            <a href="#return">Return</a>
+            <a href="#parameter">Parameter</a>
           </li>
           <li>
-            <a href="../../source/Tranch.php.xhtml#line52">Source</a>
+            <a href="#throws">Throws</a>
+          </li>
+          <li>
+            <a href="#interface">Interface</a>
+          </li>
+          <li>
+            <a href="../../source/Tranch.php.xhtml#line48">Source</a>
           </li>
         </ul>
       </nav>
       <section>
-        <h1><small>Investment\Tranch::</small>rate</h1>
-        <h4>Getter for interest rate</h4>
+        <h1><small>Investment\Tranch::</small>connectToLoan</h1>
+        <h4>Connect the Tranch with particular Loan</h4>
         <p/>
         <ul/>
         <h2 id="signature">Signature</h2>
         <div class="styled synopsis">
-          <code>private function rate()
+          <code>public function connectToLoan(<a title="Investment\LoanInterface" href="../../classes/Investment_LoanInterface.xhtml">LoanInterface</a>
+        $loan )
             </code>
         </div>
-        <h2 id="return">Returns</h2>
+        <h2 id="parameterlist">Parameters</h2>
         <dl class="styled">
-          <dt>Float</dt>
-          <dd>interest rate<br/>
-        </dd>
+          <dt><code>$loan</code>
+                —
+                <a title="Investment\Loan" href="../../classes/Investment_Loan.xhtml">Investment\Loan</a></dt>
+          <dd>a Loan to connect to<br/><br/><br/>      </dd>
         </dl>
+        <h2 id="throws">Errors/Exceptions</h2>
+        <dl class="styled">
+          <dt>
+            <code>
+              <a title="Investment\Exception" href="../../classes/Investment_Exception.xhtml">Exception</a>
+            </code>
+          </dt>
+          <dd>if the tranch already connected</dd>
+        </dl>
+        <h2 id="interface">Defined by Interface</h2>
+        <p class="styled">
+          <code>
+            <a title="Investment\TranchInterface" href="../../interfaces/Investment_TranchInterface.xhtml">TranchInterface</a>
+          </code>
+        </p>
       </section>
     </div>
     <footer>

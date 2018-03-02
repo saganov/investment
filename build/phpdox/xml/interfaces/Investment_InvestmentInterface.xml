@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Investment\InvestmentInterface" namespace="Investment" name="InvestmentInterface" abstract="false" final="false" start="17" end="35">
+  <file path="C:/cygwin64/home/psaganov/git/pub/investment/src" file="InvestmentInterface.php" realpath="C:/cygwin64/home/psaganov/git/pub/investment/src/InvestmentInterface.php" size="747" time="2018-03-02T00:51:12+00:00" unixtime="1519951872" sha1="819fbb3cd2f0d42b43859f8c15af56a48e52eefe" relative="InvestmentInterface.php"/>
+  <docblock>
+    <description compact="Investment interface"/>
+  </docblock>
+  <method name="sum" start="34" end="34" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Getter for investment sum"/>
+      <return description="an investment sum" type="object">
+        <type full="Investment\Integer" namespace="Investment" name="Integer"/>
+      </return>
+    </docblock>
+  </method>
+  <implementors>
+    <class full="Investment\Investment" namespace="Investment" name="Investment"/>
+  </implementors>
+</interface>

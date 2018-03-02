@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Investment\InvestmentCollection" namespace="Investment" name="InvestmentCollection" abstract="false" final="false" start="17" end="66">
+  <file path="C:/cygwin64/home/psaganov/git/pub/investment/src" file="InvestmentCollection.php" realpath="C:/cygwin64/home/psaganov/git/pub/investment/src/InvestmentCollection.php" size="1736" time="2018-03-02T00:51:12+00:00" unixtime="1519951872" sha1="1804d3ddc79311a0bfa8ae2b7c9e37102bd23695" relative="InvestmentCollection.php"/>
+  <docblock>
+    <description compact="Colletion of Investment objects"/>
+  </docblock>
+  <implements full="Investment\InvestmentCollectionInterface" namespace="Investment" name="InvestmentCollectionInterface"/>
+  <implements full="Investment\InvestmentReportInterface" namespace="Investment" name="InvestmentReportInterface"/>
+  <member name="collection" default="" type="array" visibility="private" static="false" line="19"/>
+  <method name="add" start="28" end="31" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Adds new Investment to the collection"/>
+      <param description="an investment to add" type="object" variable="$investment">
+        <type full="Investment\Investment" namespace="Investment" name="Investment"/>
+      </param>
+      <return description="for chaining methods;" type="object">
+        <type full="Investment\InvestmentCollection" namespace="Investment" name="InvestmentCollection"/>
+      </return>
+    </docblock>
+    <parameter name="investment" byreference="false" type="object">
+      <type full="Investment\InvestmentInterface" namespace="Investment" name="InvestmentInterface"/>
+    </parameter>
+  </method>
+  <method name="sum" start="38" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Calculate total sum of all investments in collection"/>
+      <return description="total of all sum's of investments in collection" type="object">
+        <type full="Investment\Integer" namespace="Investment" name="Integer"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="report" start="53" end="65" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create report by investors and their interests on the specified date"/>
+      <param description="a report date" type="object" variable="$date">
+        <type full="DateTime" namespace="" name="DateTime"/>
+      </param>
+      <return description="[&lt;investor name&gt; =&gt; &lt;interest&gt;, ...]" type="object">
+        <type full="Investment\Array" namespace="Investment" name="Array"/>
+      </return>
+    </docblock>
+    <parameter name="date" byreference="false" type="object">
+      <type full="DateTime" namespace="" name="DateTime"/>
+    </parameter>
+  </method>
+  <interface full="Investment\InvestmentCollectionInterface" namespace="Investment" name="InvestmentCollectionInterface">
+    <method name="add" start="25" end="25" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Adds new Investment to the collection"/>
+        <param description="an investment to add" type="object" variable="$investment">
+          <type full="Investment\Investment" namespace="Investment" name="Investment"/>
+        </param>
+        <return description="for chaining methods;" type="object">
+          <type full="Investment\InvestmentCollection" namespace="Investment" name="InvestmentCollection"/>
+        </return>
+      </docblock>
+      <parameter name="investment" byreference="false" type="object">
+        <type full="Investment\InvestmentInterface" namespace="Investment" name="InvestmentInterface"/>
+      </parameter>
+    </method>
+    <method name="sum" start="32" end="32" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Calculate total sum of all investments in collection"/>
+        <return description="total of all sum's of investments in collection" type="object">
+          <type full="Investment\Integer" namespace="Investment" name="Integer"/>
+        </return>
+      </docblock>
+    </method>
+  </interface>
+  <interface full="Investment\InvestmentReportInterface" namespace="Investment" name="InvestmentReportInterface">
+    <method name="report" start="26" end="26" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Create report of investments"/>
+        <param description="a report date" type="object" variable="$date">
+          <type full="Investment\DateTime" namespace="Investment" name="DateTime"/>
+        </param>
+        <return description="[&lt;investor name&gt; =&gt; &lt;interest&gt;, ...]" type="object">
+          <type full="Investment\Array" namespace="Investment" name="Array"/>
+        </return>
+      </docblock>
+      <parameter name="date" byreference="false" type="object">
+        <type full="DateTime" namespace="" name="DateTime"/>
+      </parameter>
+    </method>
+  </interface>
+</class>

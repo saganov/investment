@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Investment\LoanInterface" namespace="Investment" name="LoanInterface" abstract="false" final="false" start="19" end="50">
+  <file path="C:/cygwin64/home/psaganov/git/pub/investment/src" file="LoanInterface.php" realpath="C:/cygwin64/home/psaganov/git/pub/investment/src/LoanInterface.php" size="1194" time="2018-03-02T00:51:12+00:00" unixtime="1519951872" sha1="e02c5ae01f080ea82b835b1cb386dc289289413d" relative="LoanInterface.php"/>
+  <docblock>
+    <description compact="A Loan class"/>
+    <author value="Petr Saganov &lt;saganoff@gmail.com&gt;"/>
+  </docblock>
+  <method name="tranch" start="28" end="28" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create new tranch for the loan"/>
+      <param description="a new tranch for the loan" type="object" variable="$tranch">
+        <type full="Investment\Tranch" namespace="Investment" name="Tranch"/>
+      </param>
+      <return description="to chain methods" type="object">
+        <type full="Investment\Loan" namespace="Investment" name="Loan"/>
+      </return>
+    </docblock>
+    <parameter name="tranch" byreference="false" type="object">
+      <type full="Investment\TranchInterface" namespace="Investment" name="TranchInterface"/>
+    </parameter>
+  </method>
+  <method name="isDateAcceptable" start="37" end="37" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Check if the provided date is in the loan dates range"/>
+      <param description="a date to check" type="object" variable="$date">
+        <type full="Investment\DateTime" namespace="Investment" name="DateTime"/>
+      </param>
+      <return description="True if the date in range, False - otherwise" type="object">
+        <type full="Investment\Boolean" namespace="Investment" name="Boolean"/>
+      </return>
+    </docblock>
+    <parameter name="date" byreference="false" type="object">
+      <type full="DateTime" namespace="" name="DateTime"/>
+    </parameter>
+  </method>
+  <method name="report" start="49" end="49" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Provide report by investors">Report includes each investors of the loan with each calculated interests
+on the specified date</description>
+      <param description="a date which the calculation will be made on" type="object" variable="$date">
+        <type full="Investment\DateTime" namespace="Investment" name="DateTime"/>
+      </param>
+      <return description="[&lt;Investor name&gt; =&gt; &lt;interest&gt;, ...]" type="object">
+        <type full="Investment\Array" namespace="Investment" name="Array"/>
+      </return>
+    </docblock>
+    <parameter name="date" byreference="false" type="object">
+      <type full="DateTime" namespace="" name="DateTime"/>
+    </parameter>
+  </method>
+  <implementors>
+    <class full="Investment\Loan" namespace="Investment" name="Loan"/>
+  </implementors>
+</interface>

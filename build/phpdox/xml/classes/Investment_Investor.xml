@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class xmlns="http://xml.phpdox.net/src" full="Investment\Investor" namespace="Investment" name="Investor" abstract="false" final="false" start="17" end="63">
-  <file path="C:/cygwin64/home/psaganov/git/pub/investment/src" file="Investor.php" realpath="C:/cygwin64/home/psaganov/git/pub/investment/src/Investor.php" size="1333" time="2018-02-28T21:55:34+00:00" unixtime="1519854934" sha1="eba01c3006244751e2b22a730844d52a5639bc98" relative="Investor.php"/>
+<class xmlns="http://xml.phpdox.net/src" full="Investment\Investor" namespace="Investment" name="Investor" abstract="false" final="false" start="18" end="63">
+  <file path="C:/cygwin64/home/psaganov/git/pub/investment/src" file="Investor.php" realpath="C:/cygwin64/home/psaganov/git/pub/investment/src/Investor.php" size="1526" time="2018-03-02T00:51:12+00:00" unixtime="1519951872" sha1="f6d72d03e35c09cee84bd3d9303a97703afe0bfc" relative="Investor.php"/>
   <docblock>
     <description compact="Investor class"/>
   </docblock>
-  <member name="name" visibility="private" static="false" line="19"/>
-  <member name="wallet" visibility="private" static="false" line="20"/>
-  <constructor name="__construct" start="28" end="31" abstract="false" final="false" static="false" visibility="public">
+  <implements full="Investment\InvestorInterface" namespace="Investment" name="InvestorInterface"/>
+  <member name="name" visibility="private" static="false" line="20"/>
+  <member name="wallet" visibility="private" static="false" line="21"/>
+  <member name="investments" default="" type="array" visibility="private" static="false" line="22"/>
+  <constructor name="__construct" start="30" end="33" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Constructor of the Investor"/>
       <param description="a name of the investor" type="object" variable="$name">
@@ -19,7 +21,32 @@
     <parameter name="name" byreference="false" type="{unknown}"/>
     <parameter name="wallet" byreference="false" type="{unknown}"/>
   </constructor>
-  <method name="__toString" start="38" end="40" abstract="false" final="false" static="false" visibility="public">
+  <method name="invest" start="46" end="53" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create new Investment and register it in the loan"/>
+      <param description="an investment tranch" type="object" variable="$tranch">
+        <type full="Investment\Tranch" namespace="Investment" name="Tranch"/>
+      </param>
+      <param description="an investment sum" type="object" variable="$sum">
+        <type full="Investment\Integer" namespace="Investment" name="Integer"/>
+      </param>
+      <param description="an investment date" type="object" variable="$date">
+        <type full="DateTime" namespace="" name="DateTime"/>
+      </param>
+      <throws description="if sum is out of the available money in wallet" type="object">
+        <type full="Investment\Exception" namespace="Investment" name="Exception"/>
+      </throws>
+      <retun value="void"/>
+    </docblock>
+    <parameter name="tranch" byreference="false" type="object">
+      <type full="Investment\TranchInterface" namespace="Investment" name="TranchInterface"/>
+    </parameter>
+    <parameter name="sum" byreference="false" type="{unknown}"/>
+    <parameter name="date" byreference="false" type="object">
+      <type full="DateTime" namespace="" name="DateTime"/>
+    </parameter>
+  </method>
+  <method name="__toString" start="60" end="62" abstract="false" final="false" static="false" visibility="public">
     <docblock>
       <description compact="Magick function to transfom object to string"/>
       <return description="an investor name" type="object">
@@ -27,28 +54,35 @@
       </return>
     </docblock>
   </method>
-  <method name="isEnoughMoney" start="49" end="51" abstract="false" final="false" static="false" visibility="public">
-    <docblock>
-      <description compact="Check if the invvestor has enough money"/>
-      <param description="a sum to check if in the wallet exists enough money" type="object" variable="$sum">
-        <type full="Investment\Integer" namespace="Investment" name="Integer"/>
-      </param>
-      <return type="object">
-        <type full="Investment\Boolean" namespace="Investment" name="Boolean"/>
-      </return>
-    </docblock>
-    <parameter name="sum" byreference="false" type="{unknown}"/>
-  </method>
-  <method name="decrease" start="60" end="62" abstract="false" final="false" static="false" visibility="public">
-    <docblock>
-      <description compact="Decrease the amount of money in the wallet"/>
-      <param description="a sum to decrease the amount of money in the wallet" type="object" variable="$sum">
-        <type full="Investment\Integer" namespace="Investment" name="Integer"/>
-      </param>
-      <return type="object">
-        <type full="Investment\void" namespace="Investment" name="void"/>
-      </return>
-    </docblock>
-    <parameter name="sum" byreference="false" type="{unknown}"/>
-  </method>
+  <interface full="Investment\InvestorInterface" namespace="Investment" name="InvestorInterface">
+    <method name="invest" start="26" end="26" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Create new Investment"/>
+        <param description="an investment tranch" type="object" variable="$tranch">
+          <type full="Investment\Tranch" namespace="Investment" name="Tranch"/>
+        </param>
+        <param description="an investment sum" type="object" variable="$sum">
+          <type full="Investment\Integer" namespace="Investment" name="Integer"/>
+        </param>
+        <param description="an investment date" type="object" variable="$date">
+          <type full="Investment\DateTime" namespace="Investment" name="DateTime"/>
+        </param>
+      </docblock>
+      <parameter name="tranch" byreference="false" type="object">
+        <type full="Investment\TranchInterface" namespace="Investment" name="TranchInterface"/>
+      </parameter>
+      <parameter name="sum" byreference="false" type="{unknown}"/>
+      <parameter name="date" byreference="false" type="object">
+        <type full="DateTime" namespace="" name="DateTime"/>
+      </parameter>
+    </method>
+    <method name="__toString" start="33" end="33" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Magick function to transfom object to string"/>
+        <return description="an investor name" type="object">
+          <type full="Investment\String" namespace="Investment" name="String"/>
+        </return>
+      </docblock>
+    </method>
+  </interface>
 </class>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://xml.phpdox.net/src" full="Investment\InvestmentReportInterface" namespace="Investment" name="InvestmentReportInterface" abstract="false" final="false" start="17" end="27">
+  <file path="C:/cygwin64/home/psaganov/git/pub/investment/src" file="InvestmentReportInterface.php" realpath="C:/cygwin64/home/psaganov/git/pub/investment/src/InvestmentReportInterface.php" size="541" time="2018-03-02T00:51:12+00:00" unixtime="1519951872" sha1="83fe7d95f1803d12290b527cadd8c4902e14dd55" relative="InvestmentReportInterface.php"/>
+  <docblock>
+    <description compact="Tranch interface"/>
+  </docblock>
+  <method name="report" start="26" end="26" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Create report of investments"/>
+      <param description="a report date" type="object" variable="$date">
+        <type full="Investment\DateTime" namespace="Investment" name="DateTime"/>
+      </param>
+      <return description="[&lt;investor name&gt; =&gt; &lt;interest&gt;, ...]" type="object">
+        <type full="Investment\Array" namespace="Investment" name="Array"/>
+      </return>
+    </docblock>
+    <parameter name="date" byreference="false" type="object">
+      <type full="DateTime" namespace="" name="DateTime"/>
+    </parameter>
+  </method>
+  <implementors>
+    <class full="Investment\InvestmentCollection" namespace="Investment" name="InvestmentCollection"/>
+    <class full="Investment\Loan" namespace="Investment" name="Loan"/>
+    <class full="Investment\Report" namespace="Investment" name="Report"/>
+  </implementors>
+</interface>

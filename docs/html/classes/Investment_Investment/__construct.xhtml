@@ -19,6 +19,9 @@
           <a href="../../namespaces.xhtml">Namespaces</a>
         </li>
         <li>
+          <a href="../../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
           <a href="../../classes.xhtml">Classes</a>
         </li>
         <li class="separator">
@@ -70,14 +73,14 @@
         <ul/>
         <h2 id="signature">Signature</h2>
         <div class="styled synopsis">
-          <code>public function __construct(<a title="Investment\Investor" href="../../classes/Investment_Investor.xhtml">Investor</a>
+          <code>public function __construct(<a title="Investment\InvestorInterface" href="../../classes/Investment_InvestorInterface.xhtml">InvestorInterface</a>
         $investor,
             <a title="Investment\Integ" href="../../classes/Investment_Integ.xhtml">Integ</a>
         $sum,
-            <a title="Investment\String" href="../../classes/Investment_String.xhtml">String</a>
-        $tranch,
             <a title="DateTime" href="../../classes/DateTime.xhtml">DateTime</a>
-        $date )
+        $date,
+            <a title="Investment\Float" href="../../classes/Investment_Float.xhtml">Float</a>
+        $rate )
             </code>
         </div>
         <h2 id="parameterlist">Parameters</h2>
@@ -90,14 +93,14 @@
                 —
                 object</dt>
           <dd>a sum to invest<br/><br/><br/>      </dd>
-          <dt><code>$tranch</code>
-                —
-                object</dt>
-          <dd>a tranch name<br/><br/><br/>      </dd>
           <dt><code>$date</code>
                 —
                 <a title="DateTime" href="../../classes/DateTime.xhtml">DateTime</a></dt>
           <dd>a date to invest to<br/><br/><br/>      </dd>
+          <dt><code>$rate</code>
+                —
+                object</dt>
+          <dd>an investment rate of the investment<br/><br/><br/>      </dd>
         </dl>
         <h2 id="return">Returns</h2>
         <dl class="styled">

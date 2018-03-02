@@ -19,6 +19,9 @@
           <a href="../namespaces.xhtml">Namespaces</a>
         </li>
         <li>
+          <a href="../interfaces.xhtml">Interfaces</a>
+        </li>
+        <li>
           <a href="../classes.xhtml">Classes</a>
         </li>
         <li class="separator">
@@ -50,6 +53,9 @@
             <a href="#synopsis">Synopsis</a>
           </li>
           <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
             <a href="#members">Members</a>
           </li>
           <li>
@@ -67,18 +73,28 @@
         <ul/>
         <h2 id="synopsis">Synopsis</h2>
         <div class="synopsis">class Investment
+                implements
+                <a title="Investment\InvestmentInterface" href="../interfaces/Investment_InvestmentInterface.xhtml">InvestmentInterface</a>
             {<br/><ul class="none"><li>// members</li><li>private  <a href="#members">$investor</a>;
                     </li><li>private  <a href="#members">$sum</a>;
-                    </li><li>private  <a href="#members">$tranch</a>;
                     </li><li>private  <a href="#members">$date</a>;
+                    </li><li>private  <a href="#members">$rate</a>;
                     </li></ul><ul class="none"><li>// methods</li><li>public Investment <a title="Investment\Investment" href="../classes/Investment_Investment/__construct.xhtml">__construct</a>()
-                    </li><li>public void <a title="Investment\Investment" href="../classes/Investment_Investment/calculateInterest.xhtml">calculateInterest</a>()
-                    </li><li>public Investor <a title="Investment\Investment" href="../classes/Investment_Investment/investor.xhtml">investor</a>()
-                    </li><li>public String <a title="Investment\Investment" href="../classes/Investment_Investment/tranch.xhtml">tranch</a>()
+                    </li><li>private void <a title="Investment\Investment" href="../classes/Investment_Investment/calculateInterest.xhtml">calculateInterest</a>()
+                    </li><li>public void <a title="Investment\Investment" href="../classes/Investment_Investment/report.xhtml">report</a>()
                     </li><li>public Integer <a title="Investment\Investment" href="../classes/Investment_Investment/sum.xhtml">sum</a>()
                     </li></ul>
 
             }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Implements</h4>
+          <ul>
+            <li>
+              <a title="Investment\InvestmentInterface" href="../interfaces/Investment_InvestmentInterface.xhtml">Investment\InvestmentInterface</a>
+            </li>
+          </ul>
+        </div>
         <h2 id="members">Members</h2>
         <div class="styled members">
           <h4>private</h4>
@@ -89,28 +105,30 @@
             <li id="investor">
               <strong>$investor</strong>
             </li>
+            <li id="rate">
+              <strong>$rate</strong>
+            </li>
             <li id="sum">
               <strong>$sum</strong>
-            </li>
-            <li id="tranch">
-              <strong>$tranch</strong>
             </li>
           </ul>
         </div>
         <h2 id="methods">Methods</h2>
         <div class="styled">
+          <h4>private</h4>
+          <ul>
+            <li id="calculateInterest"><a title="Investment\Investment" href="../classes/Investment_Investment/calculateInterest.xhtml">calculateInterest()</a>
+                — Calculate the interest on the specified date for provided interest rate</li>
+          </ul>
           <h4>public</h4>
           <ul>
             <li id="__construct"><a title="Investment\Investment" href="../classes/Investment_Investment/__construct.xhtml">__construct()</a>
                 — Constructor of Investment object</li>
-            <li id="calculateInterest"><a title="Investment\Investment" href="../classes/Investment_Investment/calculateInterest.xhtml">calculateInterest()</a>
-                — Calculate the interest on the specified date for provided interest rate</li>
-            <li id="investor"><a title="Investment\Investment" href="../classes/Investment_Investment/investor.xhtml">investor()</a>
-                — Gettr fo investor</li>
+            <li id="report">
+              <a title="Investment\Investment" href="../classes/Investment_Investment/report.xhtml">report()</a>
+            </li>
             <li id="sum"><a title="Investment\Investment" href="../classes/Investment_Investment/sum.xhtml">sum()</a>
                 — Getter for investment sum</li>
-            <li id="tranch"><a title="Investment\Investment" href="../classes/Investment_Investment/tranch.xhtml">tranch()</a>
-                — Getter for tranch</li>
           </ul>
         </div>
       </section>

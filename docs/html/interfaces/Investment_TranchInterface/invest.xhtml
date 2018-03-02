@@ -2,7 +2,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <title>phpDox - Investment\Investment::investor</title>
+    <title>phpDox - Investment\TranchInterface::invest</title>
     <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen"/>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
   </head>
@@ -17,6 +17,9 @@
         </li>
         <li class="separator">
           <a href="../../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../../interfaces.xhtml">Interfaces</a>
         </li>
         <li>
           <a href="../../classes.xhtml">Classes</a>
@@ -39,9 +42,9 @@
             <a href="../../classes.xhtml#Investment">Investment</a>
           </li>
           <li class="separator">
-            <a title="Investment\Investment" href="../../classes/Investment_Investment.xhtml">Investment</a>
+            <a title="Investment\TranchInterface" href="../../interfaces/Investment_TranchInterface.xhtml">TranchInterface</a>
           </li>
-          <li class="separator">investor</li>
+          <li class="separator">invest</li>
         </ul>
       </div>
       <nav class="box">
@@ -53,26 +56,49 @@
             <a href="#synopsis">Synopsis</a>
           </li>
           <li>
+            <a href="#parameter">Parameter</a>
+          </li>
+          <li>
             <a href="#return">Return</a>
           </li>
           <li>
-            <a href="../../source/Investment.php.xhtml#line60">Source</a>
+            <a href="../../source/TranchInterface.php.xhtml#line35">Source</a>
           </li>
         </ul>
       </nav>
       <section>
-        <h1><small>Investment\Investment::</small>investor</h1>
-        <h4>Gettr fo investor</h4>
+        <h1><small>Investment\TranchInterface::</small>invest</h1>
+        <h4>Create a new investment</h4>
         <p/>
         <ul/>
         <h2 id="signature">Signature</h2>
         <div class="styled synopsis">
-          <code>private function investor()
+          <code>public function invest(<a title="Investment\InvestorInterface" href="../../interfaces/Investment_InvestorInterface.xhtml">InvestorInterface</a>
+        $investor,
+            <a title="Investment\Integer" href="../../interfaces/Investment_Integer.xhtml">Integer</a>
+        $sum,
+            <a title="DateTime" href="../../interfaces/DateTime.xhtml">DateTime</a>
+        $date )
             </code>
         </div>
+        <h2 id="parameterlist">Parameters</h2>
+        <dl class="styled">
+          <dt><code>$investor</code>
+                —
+                <a title="Investment\Investor" href="../../interfaces/Investment_Investor.xhtml">Investment\Investor</a></dt>
+          <dd>an investment investor<br/><br/><br/>      </dd>
+          <dt><code>$sum</code>
+                —
+                object</dt>
+          <dd>an investment sum<br/><br/><br/>      </dd>
+          <dt><code>$date</code>
+                —
+                <a title="Investment\DateTime" href="../../interfaces/Investment_DateTime.xhtml">Investment\DateTime</a></dt>
+          <dd>an investment date<br/><br/><br/>      </dd>
+        </dl>
         <h2 id="return">Returns</h2>
         <dl class="styled">
-          <dt>Investor</dt>
+          <dt>void</dt>
           <dd><br/>
         </dd>
         </dl>
