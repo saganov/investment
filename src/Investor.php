@@ -15,7 +15,7 @@ use DateTime;
 /**
  * Investor class
  */
-class Investor
+class Investor implements InvestorInterface
 {
     private $name;
     private $wallet;
@@ -31,7 +31,19 @@ class Investor
         $this->name = $name;
         $this->wallet = $wallet;
     }
-    public function invest(Tranch $tranch, $sum, DateTime $date){
+
+    /**
+     * Create new Investment and register it in the loan
+     *
+     * @param Tranch   $tranch an investment tranch
+     * @param Integer  $sum    an investment sum
+     * @param DateTime $date   an investment date
+     *
+     * @throws Exception if sum is out of the available money in wallet
+     *
+     * @retun void
+     */
+    public function invest(TranchInterface $tranch, $sum, DateTime $date){
         if ($this->wallet >= $sum){
             $tranch->invest($this, $sum, $date);
             $this->wallet -= $sum;
@@ -39,6 +51,7 @@ class Investor
             throw new \Exception("Not enough money for the investment");
         }
     }
+
     /**
      * Magick function to transfom object to string
      *

@@ -16,7 +16,7 @@ use \DateTime;
 /**
  * Investment class
  */
-class Investment
+class Investment implements InvestmentInterface
 {
     private $investor;
     private $sum;
@@ -33,7 +33,7 @@ class Investment
      *
      * @return Investment
      */
-    public function __construct(Investor $investor, $sum, DateTime $date, $rate){
+    public function __construct(InvestorInterface $investor, $sum, DateTime $date, $rate){
         $this->investor = $investor;
         $this->sum = $sum;
         $this->date = $date;
@@ -48,17 +48,12 @@ class Investment
      *
      * @return void
      */
-    public function calculateInterest(DateTime $date){
+    private function calculateInterest(DateTime $date){
         return ($this->sum * $this->rate * ($date->diff($this->date, true)->days + 1) / cal_days_in_month(CAL_GREGORIAN, $date->format('n'), $date->format('Y')));
     }
 
-    /**
-     * Gettr fo investor
-     *
-     * @return Investor
-     */
-    public function investor(){
-        return $this->investor;
+    public function report(DateTime $date){
+        return [(string)$this->investor => $this->calculateInterest($date)];
     }
 
     /**

@@ -15,7 +15,7 @@ use Investment\InvestmentCollection;
 /**
  * Object that represents Tranch
  */
-class Tranch
+class Tranch implements TranchInterface
 {
     private $name;
     private $rate;
@@ -37,7 +37,15 @@ class Tranch
         $this->amount = $amount;
         $this->investments = new InvestmentCollection();
     }
-    public function connectToLoan(Loan $loan){
+
+    /**
+     * Connect the Tranch with particular Loan
+     *
+     * @throws Exception if the tranch already connected
+     *
+     * @param Loan $loan a Loan to connect to
+     */
+    public function connectToLoan(LoanInterface $loan){
         if(isset($this->loan)){
             throw new \Exception("This tranch has already connected to a loan");
         } else {
@@ -57,7 +65,7 @@ class Tranch
      *
      * @return void
      */
-    public function invest(Investor $investor, $sum, DateTime $date){
+    public function invest(InvestorInterface $investor, $sum, DateTime $date){
         $availableAmount = $this->amount - $this->investments->sum();
         if ($availableAmount < $sum){
             throw new \Exception("Only '{$availableAmount}' is available to invest");
@@ -75,7 +83,7 @@ class Tranch
      *
      * @return Array [<investor name> => <interest>, ...]
      */
-    public function investmentReport(DateTime $date){
+    public function report(DateTime $date){
         return $this->investments->report($date);
     }
 }

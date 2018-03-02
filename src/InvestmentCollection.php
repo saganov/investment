@@ -14,7 +14,7 @@ use DateTime;
 /**
  * Colletion of Investment objects
  */
-class InvestmentCollection
+class InvestmentCollection implements InvestmentCollectionInterface, InvestmentReportInterface
 {
     private $collection = [];
 
@@ -25,7 +25,7 @@ class InvestmentCollection
      *
      * @return InvestmentCollection for chaining methods;
      */
-    public function add(Investment $investment){
+    public function add(InvestmentInterface $investment){
         $this->collection[] = $investment;
         return $this;
     }
@@ -53,12 +53,12 @@ class InvestmentCollection
     public function report(DateTime $date){
         $report = [];
         foreach ($this->collection as $investment){
-            $investor = (string)$investment->investor();
-            $interest = $investment->calculateInterest($date);
-            if (key_exists($investor, $report)) {
-                $report[$investor] += $interest;
-            } else {
-                $report[$investor] = $interest;
+            foreach($investment->report($date) as $name => $interest){
+                if (key_exists($name, $report)) {
+                    $report[$name] += $interest;
+                } else {
+                    $report[$name] = $interest;
+                }
             }
         }
         return $report;

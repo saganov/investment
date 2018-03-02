@@ -22,9 +22,13 @@ class LoanTest extends TestCase
         $investor3 = new Investor('Investor 3', 1000);
         $investor1->invest($this->tranchA, 1000, new DateTime('2015-10-03'));
         $investor3->invest($this->tranchB, 500,  new DateTime('2015-10-10'));
-        $this->assertEquals(
-            "'Investor 1' earns 28.06 pounds\n'Investor 3' earns 21.29 pounds",
-            $this->loan->report(new DateTime('2015-10-31')));
+        $report = $this->loan->report(new DateTime('2015-10-31')); 
+        $this->assertArrayHasKey('Investor 1', $report);
+        $this->assertArrayNotHasKey('Investor 2', $report);
+        $this->assertArrayHasKey('Investor 3', $report);
+        $this->assertArrayNotHasKey('Investor 4', $report);
+        $this->assertEquals(28.06, $report['Investor 1'], '', 0.005);
+        $this->assertEquals(21.29, $report['Investor 3'], '', 0.005);
     }
     public function testReportForDateTooEarly(){
         $this->expectException(\Exception::class);

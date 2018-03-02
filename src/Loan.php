@@ -18,7 +18,7 @@ use \DateTime;
  *
  * @author Petr Saganov <saganoff@gmail.com>
  */
-class Loan
+class Loan implements LoanInterface, InvestmentReportInterface
 {
     private $start;
     private $end;
@@ -44,11 +44,19 @@ class Loan
      *
      * @return Loan to chain methods
      */
-    public function tranch(Tranch $tranch){
+    public function tranch(TranchInterface $tranch){
         $tranch->connectToLoan($this);
         $this->tranches[] = $tranch;
         return $this;
     }
+
+    /**
+     * Check if the provided date is in the loan dates range
+     *
+     * @param DateTime $date a date to check
+     *
+     * @return Boolean True if the date in range, False - otherwise
+     */
     public function isDateAcceptable(DateTime $date){
         return ($this->start <= $date && $date <= $this->end);
     }
@@ -67,21 +75,17 @@ class Loan
      */
     public function report(DateTime $date){
         if ($this->isDateAcceptable($date)){
-            $investors = [];
+            $report = [];
             foreach ($this->tranches as $tranch){
-                foreach($tranch->investmentReport($date) as $investor => $interest){
-                    if (key_exists((string)$investor, $investors)) {
-                        $investors[(string)$investor] += $interest;
+                foreach($tranch->report($date) as $investor => $interest){
+                    if (key_exists((string)$investor, $report)) {
+                        $report[(string)$investor] += $interest;
                     } else {
-                        $investors[(string)$investor] = $interest;
+                        $report[(string)$investor] = $interest;
                     }
                 }
             }
-            $report = [];
-            foreach ($investors as $name => $earns){
-                $report[] = sprintf("'%s' earns %01.2f pounds", $name, round($earns, 2));
-            }
-            return implode("\n", $report);
+            return $report;
         } else {
             throw new \Exception("Unavailable date '{$date->format('d/m/Y')}' for the loan. Valid range is '{$this->start->format('d/m/Y')}' - '{$this->end->format('d/m/Y')}'");
         }
